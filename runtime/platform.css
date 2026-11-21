@@ -1,0 +1,79 @@
+/* Fluidian platform layer — device frames, mobile screens and the iOS and Android skins.
+   A skin applies to the whole document (the runtime sets data-fl-platform on <html> from the host
+   platform) and to any DeviceFrame, so the same scene can be previewed on every platform side by side. */
+
+/* device frames */
+.fl-device { position: relative; flex: none; max-width: 100%; }
+.fl-device-screen { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; background: var(--fl-bg); color: var(--fl-text); font-family: var(--fl-font); container: fl-screen / inline-size; }
+.fl-device-content { position: relative; flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+.fl-device-content > * { flex: 1; min-height: 0; }
+.fl-device.is-phone, .fl-device.is-tablet { background: linear-gradient(145deg, #30323a, #0b0c0f); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.16), inset 0 0 0 5px #0b0c0f, 0 44px 84px -34px rgba(0, 0, 0, 0.6), 0 18px 36px -18px rgba(0, 0, 0, 0.42); }
+.fl-device.is-phone { width: var(--fl-device-w, 340px); padding: 11px; border-radius: 54px; } .fl-device.is-phone .fl-device-screen { height: var(--fl-device-h, 700px); border-radius: 44px; }
+.fl-device.is-phone.platform-android { padding: 9px; border-radius: 42px; } .fl-device.is-phone.platform-android .fl-device-screen { border-radius: 34px; }
+.fl-device.is-tablet { width: var(--fl-device-w, 620px); padding: 14px; border-radius: 34px; } .fl-device.is-tablet .fl-device-screen { height: var(--fl-device-h, 440px); border-radius: 22px; }
+.fl-device-status { position: relative; z-index: 3; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; font: 600 14px var(--fl-font); letter-spacing: -0.01em; }
+.fl-device-icons { display: inline-flex; gap: 5px; align-items: center; } .fl-device-island { position: absolute; left: 50%; top: 10px; transform: translateX(-50%); width: 96px; height: 27px; border-radius: 99px; background: #050506; }
+.fl-device-camera { position: absolute; left: 50%; top: 13px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: #050506; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.07); }
+.fl-device.platform-android .fl-device-status { padding: 12px 22px 6px; font-size: 13px; font-weight: 500; } .fl-device.is-tablet .fl-device-island { display: none; } .fl-device.is-tablet .fl-device-status { padding: 9px 20px 4px; font-size: 12.5px; }
+.fl-device-home { position: absolute; left: 50%; bottom: 7px; transform: translateX(-50%); z-index: 6; width: 124px; height: 5px; border-radius: 99px; background: var(--fl-text); opacity: 0.86; pointer-events: none; } .fl-device.platform-android .fl-device-home { width: 96px; height: 4px; opacity: 0.5; }
+.fl-device.is-browser, .fl-device.is-window { width: var(--fl-device-w, 100%); overflow: hidden; border-radius: 14px; border: 1px solid var(--fl-hair-2); background: var(--fl-surface); box-shadow: 0 54px 100px -44px rgba(0, 0, 0, 0.5), 0 22px 40px -22px rgba(0, 0, 0, 0.28); }
+.fl-device-bar { display: flex; align-items: center; gap: 14px; padding: 10px 14px; background: var(--fl-surface-2); border-bottom: 1px solid var(--fl-hair); }
+.fl-device-url { flex: 1; max-width: 420px; height: 26px; margin: 0 auto; display: inline-flex; gap: 6px; align-items: center; justify-content: center; border-radius: 8px; background: var(--fl-surface); border: 1px solid var(--fl-hair); font-size: 12px; color: var(--fl-text-3); }
+.fl-device-title { margin: 0 auto; font-size: 12.5px; font-weight: 600; color: var(--fl-text-2); } .fl-device.is-browser .fl-device-screen, .fl-device.is-window .fl-device-screen { height: var(--fl-device-h, auto); }
+.fl-device.is-laptop { width: var(--fl-device-w, 100%); } .fl-device.is-laptop .fl-device-screen { height: var(--fl-device-h, auto); border: 10px solid #101114; border-bottom-width: 12px; border-radius: 16px 16px 0 0; box-shadow: 0 0 0 1.5px #2c2e35; }
+.fl-device-base { position: relative; height: 13px; margin: 0 -6%; border-radius: 0 0 14px 14px; background: linear-gradient(#d8dade, #a4a7ae); box-shadow: 0 28px 44px -20px rgba(0, 0, 0, 0.5); } .fl-device-base::after { content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 15%; height: 5px; border-radius: 0 0 8px 8px; background: #8d9097; }
+.fl-device-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 16px; flex: none; max-width: 100%; } .fl-device-caption { text-align: center; font-size: 13px; font-weight: 600; color: var(--fl-text-2); }
+/* a framed scene fills its frame instead of the viewport */
+.fl-device-content .fl-shell { min-height: 0; height: 100%; } .fl-device-content .fl-rail { position: static; height: auto; } .fl-device-content .fl-shell-main { overflow: hidden; } .fl-device-content .fl-landing, .fl-device-content .fl-theme { min-height: 0; }
+.fl-device-content .fl-page { padding: 24px 28px 28px; } .fl-device-content .fl-navbar { padding: 10px 20px; } .fl-device-content .fl-band { padding: 40px 24px; }
+
+/* mobile screen */
+.fl-screen { position: relative; display: flex; flex-direction: column; flex: 1; min-height: 0; height: 100%; background: var(--fl-bg); }
+.fl-screen-bar { flex: none; display: flex; align-items: center; gap: 6px; min-height: 48px; padding: 6px 12px; } .fl-screen-titles { flex: 1; min-width: 0; }
+.fl-screen-title { font-weight: 650; font-size: 17px; letter-spacing: -0.012em; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .fl-screen-sub { font-size: 12px; color: var(--fl-text-3); text-align: center; }
+.fl-screen-btn { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; flex: none; color: var(--fl-brand); } .fl-screen-trailing { display: flex; align-items: center; gap: 2px; margin-left: auto; } .fl-screen-trailing .fl-avatar { margin: 0 6px; }
+.fl-screen-body { flex: 1; min-height: 0; overflow: hidden auto; padding: 4px 16px 20px; display: flex; flex-direction: column; gap: 16px; scrollbar-width: none; } .fl-screen-body > * { flex: none; } .fl-screen-body::-webkit-scrollbar { display: none; }
+.fl-screen.tone-brand .fl-screen-bar { background: var(--fl-brand); color: var(--fl-on-brand); } .fl-screen.tone-brand .fl-screen-btn { color: var(--fl-on-brand); } .fl-screen.tone-brand .fl-screen-sub { color: color-mix(in srgb, var(--fl-on-brand) 76%, transparent); }
+.fl-screen.tone-tint { background: linear-gradient(color-mix(in srgb, var(--fl-brand) 12%, var(--fl-bg)), var(--fl-bg) 42%); }
+.fl-tabbar { flex: none; display: flex; padding: 8px 8px 22px; border-top: 1px solid var(--fl-hair); background: color-mix(in srgb, var(--fl-surface) 84%, transparent); backdrop-filter: blur(16px) saturate(1.4); }
+.fl-tabbar-item { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--fl-text-3); font-size: 10.5px; font-weight: 560; } .fl-tabbar-item.is-active { color: var(--fl-brand); }
+.fl-tabbar-icon { position: relative; display: grid; place-items: center; height: 28px; padding: 0 16px; border-radius: 99px; } .fl-tabbar-badge { position: absolute; top: -3px; right: 6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 99px; background: var(--fl-danger); color: #fff; font: 700 10px/16px var(--fl-font); text-align: center; }
+.fl-fab { position: absolute; right: 18px; bottom: 96px; z-index: 4; width: 56px; height: 56px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 50%; background: var(--fl-brand); color: var(--fl-on-brand); font-weight: 620; box-shadow: 0 16px 28px -12px var(--fl-brand), 0 4px 10px rgba(0, 0, 0, 0.2); } .fl-fab.has-label { width: auto; padding: 0 20px 0 16px; border-radius: 99px; }
+
+/* iOS skin */
+[data-fl-platform="ios"] .fl-screen.has-large .fl-screen-bar { flex-wrap: wrap; padding-bottom: 2px; } [data-fl-platform="ios"] .fl-screen.has-large .fl-screen-titles { order: 3; flex-basis: 100%; padding: 0 6px 8px; }
+[data-fl-platform="ios"] .fl-screen.has-large .fl-screen-title { text-align: left; font-family: var(--fl-font-display); font-size: calc(32px * var(--fl-display-scale, 1)); font-weight: max(var(--fl-display-weight, 700), 400); letter-spacing: -0.035em; line-height: 1.1; white-space: normal; }
+[data-fl-platform="ios"] .fl-screen.has-large .fl-screen-sub { text-align: left; font-size: 14px; margin-top: 2px; }
+[data-fl-platform="ios"] .fl-card, [data-fl-platform="ios"] .fl-stat, [data-fl-platform="ios"] .fl-tile { border-radius: 22px; border-color: transparent; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 26px -18px rgba(0, 0, 0, 0.3); }
+[data-fl-platform="ios"] .fl-btn { border-radius: 13px; } [data-fl-platform="ios"] .fl-btn.size-lg { height: 50px; border-radius: 15px; font-size: 16px; }
+[data-fl-platform="ios"] .fl-toggle-ui { width: 46px; height: 28px; } [data-fl-platform="ios"] .fl-toggle-ui::after { width: 24px; height: 24px; } [data-fl-platform="ios"] input:checked + .fl-toggle-ui { background: var(--fl-success); } [data-fl-platform="ios"] input:checked + .fl-toggle-ui::after { transform: translateX(18px); }
+[data-fl-platform="ios"] .fl-input-wrap, [data-fl-platform="ios"] .fl-search { border-radius: 12px; border-color: transparent; background: var(--fl-hair); box-shadow: none; } [data-fl-platform="ios"] .fl-segmented { border-radius: 10px; } [data-fl-platform="ios"] .fl-segmented .fl-choice { border-radius: 8px; flex: 1; justify-content: center; } [data-fl-platform="ios"] .fl-segmented { width: 100%; }
+[data-fl-platform="ios"] .fl-overlay.is-modal { place-items: end center; padding: 0; } [data-fl-platform="ios"] .fl-modal { width: 100%; border-radius: 26px 26px 0 0; }
+
+/* Android skin (Material 3 conventions) */
+[data-fl-platform="android"] .fl-screen-bar { min-height: 64px; padding: 8px 8px 8px 16px; flex-wrap: nowrap; } [data-fl-platform="android"] .fl-screen-btn { color: var(--fl-text-2); } [data-fl-platform="android"] .fl-screen-bar > .fl-screen-btn:first-child { margin-left: -8px; }
+[data-fl-platform="android"] .fl-screen-title { text-align: left; font-family: var(--fl-font-display); font-size: calc(22px * var(--fl-display-scale, 1)); font-weight: min(var(--fl-display-weight, 500), 560); letter-spacing: -0.01em; } [data-fl-platform="android"] .fl-screen-sub { text-align: left; }
+[data-fl-platform="android"] .fl-tabbar { padding: 12px 8px 26px; border-top: 0; backdrop-filter: none; background: color-mix(in srgb, var(--fl-brand) 8%, var(--fl-surface)); }
+[data-fl-platform="android"] .fl-tabbar-item { gap: 4px; font-size: 12px; font-weight: 600; color: var(--fl-text-2); } [data-fl-platform="android"] .fl-tabbar-item.is-active { color: var(--fl-text); } [data-fl-platform="android"] .fl-tabbar-icon { height: 32px; padding: 0 20px; }
+[data-fl-platform="android"] .fl-tabbar-item.is-active .fl-tabbar-icon { background: color-mix(in srgb, var(--fl-brand) 26%, transparent); }
+[data-fl-platform="android"] .fl-fab { bottom: 108px; border-radius: 16px; background: color-mix(in srgb, var(--fl-brand) 24%, var(--fl-surface)); color: var(--fl-brand-text); box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.34); } [data-fl-platform="android"] .fl-fab.has-label { border-radius: 16px; }
+[data-fl-platform="android"] .fl-card, [data-fl-platform="android"] .fl-stat, [data-fl-platform="android"] .fl-tile { border-radius: 20px; border-color: transparent; box-shadow: none; background: color-mix(in srgb, var(--fl-brand) 6%, var(--fl-surface)); }
+[data-fl-platform="android"] .fl-btn { border-radius: 99px; letter-spacing: 0.005em; } [data-fl-platform="android"] .fl-btn.is-primary { box-shadow: none; background: var(--fl-brand); } [data-fl-platform="android"] .fl-btn.size-lg { height: 48px; }
+[data-fl-platform="android"] .fl-toggle-ui { width: 48px; height: 28px; background: var(--fl-surface-3); box-shadow: inset 0 0 0 2px var(--fl-border-strong); } [data-fl-platform="android"] .fl-toggle-ui::after { top: 6px; left: 6px; width: 16px; height: 16px; background: var(--fl-text-3); box-shadow: none; }
+[data-fl-platform="android"] input:checked + .fl-toggle-ui { background: var(--fl-brand); box-shadow: none; } [data-fl-platform="android"] input:checked + .fl-toggle-ui::after { transform: translateX(20px) scale(1.3); background: var(--fl-on-brand); }
+[data-fl-platform="android"] .fl-input-wrap, [data-fl-platform="android"] .fl-search { border-radius: 99px; border-color: transparent; background: color-mix(in srgb, var(--fl-brand) 9%, var(--fl-surface)); box-shadow: none; }
+[data-fl-platform="android"] .fl-segmented { background: none; padding: 0; gap: 0; border-radius: 99px; box-shadow: inset 0 0 0 1px var(--fl-border-strong); width: 100%; overflow: hidden; } [data-fl-platform="android"] .fl-segmented .fl-choice { flex: 1; justify-content: center; border-radius: 0; padding: 8px 12px; box-shadow: none; } [data-fl-platform="android"] .fl-segmented .fl-choice + .fl-choice { box-shadow: -1px 0 0 var(--fl-border-strong); }
+[data-fl-platform="android"] .fl-segmented .fl-choice.is-active { background: color-mix(in srgb, var(--fl-brand) 24%, transparent); } [data-fl-platform="android"] .fl-chip { border-radius: 9px; }
+
+/* scenes adapt to the frame they are in, not only to the browser window */
+@container fl-screen (max-width: 720px) {
+  .fl-shell { grid-template-columns: 1fr; } .fl-rail { display: none; } .fl-split { grid-template-columns: 1fr !important; } .fl-grid:not([data-auto]) { grid-template-columns: repeat(min(var(--fl-cols), 2), minmax(0, 1fr)); }
+  .fl-navbar-links { display: none; } .fl-bento { grid-template-columns: 1fr; } .fl-bento-cell { grid-column: auto !important; grid-row: auto !important; } .fl-promo.layout-split { flex-direction: column; text-align: center; } .fl-diff-split { grid-template-columns: 1fr; }
+}
+@container fl-screen (max-width: 460px) {
+  .fl-grid:not([data-auto]) { grid-template-columns: 1fr; } .fl-kv { grid-template-columns: 1fr; } .fl-page { padding: 16px 16px 24px !important; } .fl-page-title { font-size: 24px; } .fl-hero { padding: 24px 20px; } .fl-hero-title { font-size: 28px !important; }
+  .fl-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } .fl-band { padding: 32px 16px !important; } .fl-band-title { font-size: 26px; } .fl-card-head { padding: 14px 14px 0; } .fl-card-body { padding: 14px; } .fl-stat { padding: 14px; }
+  .fl-cart-line { grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px; } .fl-cart-price { grid-column: 2 / -1; text-align: left; min-width: 0; } .fl-ratings { grid-template-columns: 1fr; gap: 14px; } .fl-funnel-row { grid-template-columns: 76px minmax(0, 1fr) 36px; } .fl-pin-cell { width: 40px; height: 50px; }
+  .fl-cta { padding: 32px 20px; } .fl-promo { padding: 32px 20px 0; min-height: 300px; } .fl-chat-msg { max-width: 92%; } .fl-footer-in { gap: 24px; } .fl-roadmap { --fl-label: 96px; }
+}
+@media (max-width: 520px) { .fl-pin-cell { width: 42px; height: 52px; } .fl-device.is-phone { --fl-device-w: 300px; } }

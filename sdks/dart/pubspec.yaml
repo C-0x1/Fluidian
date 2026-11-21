@@ -1,0 +1,5 @@
+name: fluidian
+description: Fluidian SDK for Dart - build AI-native interfaces.
+version: 1.2.0
+environment:
+  sdk: ">=2.17.0 <4.0.0"

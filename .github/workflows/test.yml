@@ -1,0 +1,25 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quick:
+    name: Engine and runtime
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: ./fluidian doctor
+      - run: ./fluidian test --quick
+
+  full:
+    name: All fourteen SDKs and the browser suite
+    runs-on: ubuntu-24.04
+    needs: quick
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install the language toolchains
+        run: bash scripts/install-toolchains.sh
+      - run: ./fluidian test --browser

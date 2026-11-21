@@ -1,0 +1,23 @@
+[package]
+name = "fluidian"
+version = "1.2.0"
+edition = "2021"
+rust-version = "1.60"
+description = "Build AI-native interfaces from Rust."
+license = "Apache-2.0"
+repository = "https://github.com/fluidian/fluidian"
+readme = "README.md"
+keywords = ["ui", "ai", "framework", "server-driven"]
+categories = ["gui", "web-programming"]
+autoexamples = false
+
+[lib]
+path = "src/lib.rs"
+
+[[example]]
+name = "conformance"
+path = "examples/conformance.rs"
+
+[[example]]
+name = "quickstart"
+path = "examples/quickstart.rs"

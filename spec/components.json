@@ -1,0 +1,6792 @@
+{
+ "version": 1,
+ "components": [
+  {
+   "type": "Page",
+   "fn": "page",
+   "category": "layout",
+   "summary": "Top-level surface with a title block and a content column.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line under the title.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label above the title.",
+     "arg": false
+    },
+    "width": {
+     "kind": "enum:narrow|default|wide|full",
+     "default": "default",
+     "doc": "Maximum content width.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Quarterly review"
+    ],
+    "props": {
+     "subtitle": "Revenue, retention and risk"
+    }
+   }
+  },
+  {
+   "type": "Shell",
+   "fn": "shell",
+   "category": "layout",
+   "summary": "Application frame with brand, navigation rail and a content region.",
+   "args": [
+    {
+     "name": "brand",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "brand": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "nav": {
+     "kind": "json",
+     "default": null,
+     "doc": "Navigation items: [{label, icon, route, badge, section, active}].",
+     "arg": false
+    },
+    "tagline": {
+     "kind": "str",
+     "default": null,
+     "doc": "Line under the brand.",
+     "arg": false
+    },
+    "user": {
+     "kind": "json",
+     "default": null,
+     "doc": "{name, role} shown at the foot of the rail.",
+     "arg": false
+    },
+    "footer": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small print at the foot of the rail.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "navigate"
+   ],
+   "primary": "brand",
+   "example": {
+    "args": [
+     "Northwind"
+    ],
+    "props": {
+     "nav": [
+      {
+       "label": "Overview",
+       "icon": "home",
+       "route": "/",
+       "active": true
+      },
+      {
+       "label": "Orders",
+       "icon": "inbox",
+       "route": "/orders",
+       "badge": "12"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Stack",
+   "fn": "stack",
+   "category": "layout",
+   "summary": "Vertical flow with consistent spacing.",
+   "args": [],
+   "props": {
+    "gap": {
+     "kind": "enum:none|xs|sm|md|lg|xl",
+     "default": "md",
+     "doc": "Space between children.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:stretch|start|center|end",
+     "default": "stretch",
+     "doc": "Cross-axis alignment.",
+     "arg": false
+    },
+    "justify": {
+     "kind": "enum:start|center|end|between",
+     "default": "start",
+     "doc": "Main-axis distribution.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "gap": "sm"
+    }
+   }
+  },
+  {
+   "type": "Row",
+   "fn": "row",
+   "category": "layout",
+   "summary": "Horizontal flow that wraps on small viewports.",
+   "args": [],
+   "props": {
+    "gap": {
+     "kind": "enum:none|xs|sm|md|lg|xl",
+     "default": "md",
+     "doc": "Space between children.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center|end|stretch|baseline",
+     "default": "center",
+     "doc": "Cross-axis alignment.",
+     "arg": false
+    },
+    "justify": {
+     "kind": "enum:start|center|end|between",
+     "default": "start",
+     "doc": "Main-axis distribution.",
+     "arg": false
+    },
+    "wrap": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Allow wrapping.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "justify": "between"
+    }
+   }
+  },
+  {
+   "type": "Grid",
+   "fn": "grid",
+   "category": "layout",
+   "summary": "Responsive grid; fixed columns or auto-fit by minimum width.",
+   "args": [],
+   "props": {
+    "columns": {
+     "kind": "num",
+     "default": "3",
+     "doc": "Column count at full width.",
+     "arg": false
+    },
+    "gap": {
+     "kind": "enum:none|xs|sm|md|lg|xl",
+     "default": "md",
+     "doc": "Space between cells.",
+     "arg": false
+    },
+    "minWidth": {
+     "kind": "num",
+     "default": null,
+     "doc": "Minimum cell width in px; enables auto-fit.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "columns": 2
+    }
+   }
+  },
+  {
+   "type": "Split",
+   "fn": "split",
+   "category": "layout",
+   "summary": "Two-pane layout with a ratio such as 2:1.",
+   "args": [],
+   "props": {
+    "ratio": {
+     "kind": "str",
+     "default": "1:1",
+     "doc": "Width ratio between panes.",
+     "arg": false
+    },
+    "gap": {
+     "kind": "enum:none|xs|sm|md|lg|xl",
+     "default": "lg",
+     "doc": "Space between panes.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "ratio": "2:1"
+    }
+   }
+  },
+  {
+   "type": "Card",
+   "fn": "card",
+   "category": "layout",
+   "summary": "Grouped surface with optional header.",
+   "args": [],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Header title.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Header supporting text.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label above the title.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "neutral",
+     "doc": "Accent colour.",
+     "arg": false
+    },
+    "elevated": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Raise with a shadow.",
+     "arg": false
+    },
+    "padding": {
+     "kind": "enum:none|sm|md|lg",
+     "default": "md",
+     "doc": "Inner spacing.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "title": "Pipeline",
+     "subtitle": "Updated just now"
+    }
+   }
+  },
+  {
+   "type": "Section",
+   "fn": "section",
+   "category": "layout",
+   "summary": "Titled region inside a page.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "description": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting text.",
+     "arg": false
+    },
+    "divider": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Draw a rule above the section.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Billing"
+    ],
+    "props": {
+     "description": "Plans, invoices and payment methods"
+    }
+   }
+  },
+  {
+   "type": "Tabs",
+   "fn": "tabs",
+   "category": "layout",
+   "summary": "Tabbed container; children must be Tab nodes.",
+   "args": [],
+   "props": {
+    "active": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Index of the selected tab.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:line|pill",
+     "default": "line",
+     "doc": "Visual style.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "change"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "variant": "pill"
+    }
+   }
+  },
+  {
+   "type": "Tab",
+   "fn": "tab",
+   "category": "layout",
+   "summary": "A single tab and its panel.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "badge": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small counter.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Activity"
+    ],
+    "props": {
+     "badge": "3"
+    }
+   }
+  },
+  {
+   "type": "Disclosure",
+   "fn": "disclosure",
+   "category": "layout",
+   "summary": "Collapsible region.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "open": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Expanded initially.",
+     "arg": false
+    },
+    "hint": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text shown beside the title.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "toggle"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Advanced options"
+    ],
+    "props": {
+     "open": true
+    }
+   }
+  },
+  {
+   "type": "Divider",
+   "fn": "divider",
+   "category": "layout",
+   "summary": "Horizontal rule with an optional label.",
+   "args": [],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Centered label.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "label": "or"
+    }
+   }
+  },
+  {
+   "type": "Spacer",
+   "fn": "spacer",
+   "category": "layout",
+   "summary": "Fixed empty space.",
+   "args": [],
+   "props": {
+    "size": {
+     "kind": "enum:xs|sm|md|lg|xl",
+     "default": "md",
+     "doc": "Amount of space.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "size": "lg"
+    }
+   }
+  },
+  {
+   "type": "Toolbar",
+   "fn": "toolbar",
+   "category": "layout",
+   "summary": "Compact row for actions and filters.",
+   "args": [],
+   "props": {
+    "justify": {
+     "kind": "enum:start|center|end|between",
+     "default": "between",
+     "doc": "Distribution.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {}
+  },
+  {
+   "type": "Modal",
+   "fn": "modal",
+   "category": "layout",
+   "summary": "Dialog layered over the page.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "open": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Visibility.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:sm|md|lg",
+     "default": "md",
+     "doc": "Dialog width.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting text.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "close"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Invite teammates"
+    ],
+    "props": {
+     "open": false
+    }
+   }
+  },
+  {
+   "type": "Drawer",
+   "fn": "drawer",
+   "category": "layout",
+   "summary": "Panel that slides in from a screen edge.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "open": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Visibility.",
+     "arg": false
+    },
+    "side": {
+     "kind": "enum:left|right",
+     "default": "right",
+     "doc": "Edge.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "close"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Filters"
+    ],
+    "props": {
+     "open": false
+    }
+   }
+  },
+  {
+   "type": "Hero",
+   "fn": "hero",
+   "category": "layout",
+   "summary": "Large introductory block.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label above the title.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting paragraph.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center",
+     "default": "start",
+     "doc": "Text alignment.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:plain|brand|aurora|glow|none",
+     "default": "plain",
+     "doc": "Background treatment.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:md|lg|xl",
+     "default": "md",
+     "doc": "Type scale.",
+     "arg": false
+    },
+    "highlight": {
+     "kind": "str",
+     "default": null,
+     "doc": "Part of the title to accent with the theme gradient.",
+     "arg": false
+    },
+    "badge": {
+     "kind": "str",
+     "default": null,
+     "doc": "Announcement shown in a pill above the title.",
+     "arg": false
+    },
+    "badgeTag": {
+     "kind": "str",
+     "default": null,
+     "doc": "Short tag inside the pill.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Interfaces that think"
+    ],
+    "props": {
+     "eyebrow": "Fluidian",
+     "tone": "aurora",
+     "highlight": "think"
+    }
+   }
+  },
+  {
+   "type": "Breadcrumbs",
+   "fn": "breadcrumbs",
+   "category": "layout",
+   "summary": "Hierarchy trail.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, route}].",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "navigate"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "label": "Workspace",
+       "route": "/"
+      },
+      {
+       "label": "Invoices",
+       "route": "/invoices"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Heading",
+   "fn": "heading",
+   "category": "content",
+   "summary": "Section heading, levels 1–4.",
+   "args": [
+    {
+     "name": "text",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "text": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "level": {
+     "kind": "num",
+     "default": "2",
+     "doc": "Heading level 1–4.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label above.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "text",
+   "example": {
+    "args": [
+     "Team activity"
+    ],
+    "props": {
+     "level": 3
+    }
+   }
+  },
+  {
+   "type": "Text",
+   "fn": "text",
+   "category": "content",
+   "summary": "Body text.",
+   "args": [
+    {
+     "name": "content",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "content": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "tone": {
+     "kind": "enum:default|muted|strong|success|warning|danger|brand",
+     "default": "default",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:xs|sm|md|lg|xl",
+     "default": "md",
+     "doc": "Type size.",
+     "arg": false
+    },
+    "weight": {
+     "kind": "enum:regular|medium|bold",
+     "default": "regular",
+     "doc": "Font weight.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center|end",
+     "default": "start",
+     "doc": "Alignment.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "content",
+   "example": {
+    "args": [
+     "Señor Ω ✓ — 日本語 🚀"
+    ],
+    "props": {
+     "tone": "muted"
+    }
+   }
+  },
+  {
+   "type": "Markdown",
+   "fn": "markdown",
+   "category": "content",
+   "summary": "Renders a safe Markdown subset: headings, emphasis, lists, links, code.",
+   "args": [
+    {
+     "name": "source",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "source": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "source",
+   "example": {
+    "args": [
+     "**Bold**, _emphasis_ and `code`.\n\n- one\n- two"
+    ]
+   }
+  },
+  {
+   "type": "Badge",
+   "fn": "badge",
+   "category": "content",
+   "summary": "Compact status label.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "neutral",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:soft|solid|outline",
+     "default": "soft",
+     "doc": "Fill style.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "dot": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show a status dot.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Live"
+    ],
+    "props": {
+     "tone": "success",
+     "dot": true
+    }
+   }
+  },
+  {
+   "type": "Tag",
+   "fn": "tag",
+   "category": "content",
+   "summary": "Removable keyword chip.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "neutral",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "removable": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show a remove control.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "remove"
+   ],
+   "primary": "label",
+   "example": {
+    "args": [
+     "design-system"
+    ],
+    "props": {
+     "removable": true
+    }
+   }
+  },
+  {
+   "type": "Icon",
+   "fn": "icon",
+   "category": "content",
+   "summary": "Glyph from the built-in icon set.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "size": {
+     "kind": "num",
+     "default": "18",
+     "doc": "Pixel size.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "neutral",
+     "doc": "Colour role.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "name",
+   "example": {
+    "args": [
+     "sparkles"
+    ],
+    "props": {
+     "size": 20
+    }
+   }
+  },
+  {
+   "type": "Image",
+   "fn": "image",
+   "category": "content",
+   "summary": "Responsive image with aspect ratio control.",
+   "args": [
+    {
+     "name": "src",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "src": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "alt": {
+     "kind": "str",
+     "default": null,
+     "doc": "Alternative text.",
+     "arg": false
+    },
+    "ratio": {
+     "kind": "str",
+     "default": null,
+     "doc": "Aspect ratio such as 16:9.",
+     "arg": false
+    },
+    "fit": {
+     "kind": "enum:cover|contain",
+     "default": "cover",
+     "doc": "Object fit.",
+     "arg": false
+    },
+    "caption": {
+     "kind": "str",
+     "default": null,
+     "doc": "Caption under the image.",
+     "arg": false
+    },
+    "rounded": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Rounded corners.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "src",
+   "example": {
+    "args": [
+     "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"
+    ],
+    "props": {
+     "alt": "Empty canvas",
+     "ratio": "16:9"
+    }
+   }
+  },
+  {
+   "type": "Avatar",
+   "fn": "avatar",
+   "category": "content",
+   "summary": "Person or entity marker with initials fallback.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "src": {
+     "kind": "str",
+     "default": null,
+     "doc": "Image URL.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:sm|md|lg",
+     "default": "md",
+     "doc": "Size.",
+     "arg": false
+    },
+    "status": {
+     "kind": "enum:online|away|busy|offline",
+     "default": null,
+     "doc": "Presence dot.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "name",
+   "example": {
+    "args": [
+     "Ada Lovelace"
+    ],
+    "props": {
+     "status": "online"
+    }
+   }
+  },
+  {
+   "type": "Code",
+   "fn": "code",
+   "category": "content",
+   "summary": "Monospaced block with a copy affordance.",
+   "args": [
+    {
+     "name": "source",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "source": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "language": {
+     "kind": "str",
+     "default": null,
+     "doc": "Language, used for the label and syntax colouring.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Header title.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:light|dark",
+     "default": "light",
+     "doc": "Surface.",
+     "arg": false
+    },
+    "plain": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Turn syntax colouring off.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "source",
+   "example": {
+    "args": [
+     "fluidian run -- python3 app.py"
+    ],
+    "props": {
+     "language": "bash"
+    }
+   }
+  },
+  {
+   "type": "Kbd",
+   "fn": "kbd",
+   "category": "content",
+   "summary": "Keyboard shortcut.",
+   "args": [
+    {
+     "name": "keys",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "keys": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "keys",
+   "example": {
+    "args": [
+     "Ctrl+K"
+    ]
+   }
+  },
+  {
+   "type": "Link",
+   "fn": "link",
+   "category": "content",
+   "summary": "Inline navigation.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    },
+    {
+     "name": "href",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "href": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "external": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Open in a new tab.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:brand|muted",
+     "default": "brand",
+     "doc": "Colour role.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "navigate"
+   ],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Read the protocol",
+     "/docs/protocol"
+    ]
+   }
+  },
+  {
+   "type": "Callout",
+   "fn": "callout",
+   "category": "content",
+   "summary": "Highlighted message block.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "body": {
+     "kind": "str",
+     "default": null,
+     "doc": "Message text.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "info",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Heads up"
+    ],
+    "props": {
+     "body": "Exports include archived projects.",
+     "tone": "warning"
+    }
+   }
+  },
+  {
+   "type": "Banner",
+   "fn": "banner",
+   "category": "content",
+   "summary": "Full-width announcement.",
+   "args": [
+    {
+     "name": "text",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "text": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "dismissible": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show a dismiss control.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "dismiss"
+   ],
+   "primary": "text",
+   "example": {
+    "args": [
+     "Scheduled maintenance on Sunday 02:00 UTC"
+    ],
+    "props": {
+     "tone": "info"
+    }
+   }
+  },
+  {
+   "type": "Stat",
+   "fn": "stat",
+   "category": "content",
+   "summary": "Key figure with delta and sparkline.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    },
+    {
+     "name": "value",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "delta": {
+     "kind": "str",
+     "default": null,
+     "doc": "Change text such as +12.4%.",
+     "arg": false
+    },
+    "trend": {
+     "kind": "enum:up|down|flat",
+     "default": null,
+     "doc": "Direction of change.",
+     "arg": false
+    },
+    "hint": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small supporting text.",
+     "arg": false
+    },
+    "spark": {
+     "kind": "json",
+     "default": null,
+     "doc": "Number series drawn as a sparkline.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "neutral",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Net revenue",
+     "$84,210"
+    ],
+    "props": {
+     "delta": "+12.4%",
+     "trend": "up",
+     "spark": [
+      3,
+      4,
+      4,
+      6,
+      5,
+      8,
+      9
+     ]
+    }
+   }
+  },
+  {
+   "type": "Progress",
+   "fn": "progress",
+   "category": "content",
+   "summary": "Linear progress.",
+   "args": [
+    {
+     "name": "value",
+     "kind": "num"
+    }
+   ],
+   "props": {
+    "value": {
+     "kind": "num",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "max": {
+     "kind": "num",
+     "default": "100",
+     "doc": "Upper bound.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Label.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "indeterminate": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Animated unknown progress.",
+     "arg": false
+    },
+    "showValue": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Print the percentage.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "args": [
+     62.5
+    ],
+    "props": {
+     "label": "Storage"
+    }
+   }
+  },
+  {
+   "type": "Skeleton",
+   "fn": "skeleton",
+   "category": "content",
+   "summary": "Loading placeholder shaped like the content it replaces.",
+   "args": [],
+   "props": {
+    "shape": {
+     "kind": "enum:text|block|circle|card",
+     "default": "text",
+     "doc": "Placeholder shape.",
+     "arg": false
+    },
+    "lines": {
+     "kind": "num",
+     "default": "3",
+     "doc": "Line count for text.",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": null,
+     "doc": "Height in px for block shapes.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "shape": "card"
+    }
+   }
+  },
+  {
+   "type": "EmptyState",
+   "fn": "empty_state",
+   "category": "content",
+   "summary": "Explains an empty region and offers a way forward.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "description": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting text.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": "inbox",
+     "doc": "Icon name.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "No invoices yet"
+    ],
+    "props": {
+     "description": "Create one or import from a spreadsheet."
+    }
+   }
+  },
+  {
+   "type": "Timeline",
+   "fn": "timeline",
+   "category": "content",
+   "summary": "Chronological list of events.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, time, detail, tone, icon}].",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "title": "Order placed",
+       "time": "09:12"
+      },
+      {
+       "title": "Packed",
+       "time": "11:40",
+       "tone": "success"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Steps",
+   "fn": "steps",
+   "category": "content",
+   "summary": "Progress through an ordered sequence.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, detail}].",
+     "arg": false
+    },
+    "current": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Index of the active step.",
+     "arg": false
+    },
+    "orientation": {
+     "kind": "enum:horizontal|vertical",
+     "default": "horizontal",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "title": "Account"
+      },
+      {
+       "title": "Workspace"
+      },
+      {
+       "title": "Invite"
+      }
+     ],
+     "current": 1
+    }
+   }
+  },
+  {
+   "type": "KeyValue",
+   "fn": "key_value",
+   "category": "content",
+   "summary": "Label/value pairs.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{key, value}].",
+     "arg": false
+    },
+    "columns": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Number of columns.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "key": "Plan",
+       "value": "Scale"
+      },
+      {
+       "key": "Seats",
+       "value": "24"
+      }
+     ],
+     "columns": 2
+    }
+   }
+  },
+  {
+   "type": "List",
+   "fn": "list",
+   "category": "content",
+   "summary": "Rows with title, detail and trailing metadata.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, detail, meta, icon, avatar, badge, tone}].",
+     "arg": false
+    },
+    "dense": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Compact rows.",
+     "arg": false
+    },
+    "divided": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Draw separators.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "title": "Design review",
+       "detail": "Thursday 14:00",
+       "meta": "45 min",
+       "icon": "calendar"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Tree",
+   "fn": "tree",
+   "category": "content",
+   "summary": "Nested hierarchy.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, icon, children}].",
+     "arg": false
+    },
+    "expanded": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Expand all levels.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "label": "src",
+       "children": [
+        {
+         "label": "app.py"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Blockquote",
+   "fn": "blockquote",
+   "category": "content",
+   "summary": "Quoted passage.",
+   "args": [
+    {
+     "name": "text",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "text": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "cite": {
+     "kind": "str",
+     "default": null,
+     "doc": "Attribution.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "text",
+   "example": {
+    "args": [
+     "Make it work, then make it obvious."
+    ],
+    "props": {
+     "cite": "Team handbook"
+    }
+   }
+  },
+  {
+   "type": "Thread",
+   "fn": "thread",
+   "category": "content",
+   "summary": "Conversation thread with authors and timestamps.",
+   "args": [],
+   "props": {
+    "messages": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{author, time, content, tone}].",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Thread title.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "messages": [
+      {
+       "author": "Mira",
+       "time": "10:02",
+       "content": "Can we ship Friday?"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Board",
+   "fn": "board",
+   "category": "content",
+   "summary": "Columns of cards for staged work.",
+   "args": [],
+   "props": {
+    "columns": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, cards: [{title, detail, tags, assignee}]}].",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "columns": [
+      {
+       "title": "Now",
+       "cards": [
+        {
+         "title": "Wire the importer",
+         "tags": [
+          "api"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Button",
+   "fn": "button",
+   "category": "input",
+   "summary": "Action trigger.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "variant": {
+     "kind": "enum:primary|secondary|ghost|danger|ai",
+     "default": "secondary",
+     "doc": "Emphasis.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:sm|md|lg",
+     "default": "md",
+     "doc": "Size.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Leading icon.",
+     "arg": false
+    },
+    "disabled": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Disable interaction.",
+     "arg": false
+    },
+    "loading": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show a spinner.",
+     "arg": false
+    },
+    "block": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Fill the available width.",
+     "arg": false
+    },
+    "href": {
+     "kind": "str",
+     "default": null,
+     "doc": "Navigate instead of emitting an event.",
+     "arg": false
+    },
+    "kbd": {
+     "kind": "str",
+     "default": null,
+     "doc": "Shortcut hint.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "click"
+   ],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Save changes"
+    ],
+    "props": {
+     "variant": "primary",
+     "icon": "check"
+    }
+   }
+  },
+  {
+   "type": "Input",
+   "fn": "input",
+   "category": "input",
+   "summary": "Single-line field.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current value.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": null,
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "kind": {
+     "kind": "enum:text|email|password|url|tel|number|search|date|time",
+     "default": "text",
+     "doc": "Input type.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    },
+    "error": {
+     "kind": "str",
+     "default": null,
+     "doc": "Validation message.",
+     "arg": false
+    },
+    "required": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Mark as required.",
+     "arg": false
+    },
+    "prefix": {
+     "kind": "str",
+     "default": null,
+     "doc": "Leading adornment.",
+     "arg": false
+    },
+    "suffix": {
+     "kind": "str",
+     "default": null,
+     "doc": "Trailing adornment.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Leading icon.",
+     "arg": false
+    },
+    "disabled": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Disable interaction.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change",
+    "input",
+    "submit"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "email"
+    ],
+    "props": {
+     "label": "Work email",
+     "kind": "email",
+     "placeholder": "you@company.com"
+    }
+   }
+  },
+  {
+   "type": "TextArea",
+   "fn": "text_area",
+   "category": "input",
+   "summary": "Multi-line field.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current value.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": null,
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "rows": {
+     "kind": "num",
+     "default": "4",
+     "doc": "Visible rows.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    },
+    "error": {
+     "kind": "str",
+     "default": null,
+     "doc": "Validation message.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change",
+    "input"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "notes"
+    ],
+    "props": {
+     "label": "Notes",
+     "rows": 3
+    }
+   }
+  },
+  {
+   "type": "Select",
+   "fn": "select",
+   "category": "input",
+   "summary": "Choose one option from a list.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "options": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or [{label, value}].",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Selected value.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": null,
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "plan"
+    ],
+    "props": {
+     "label": "Plan",
+     "options": [
+      "Starter",
+      "Scale",
+      "Enterprise"
+     ],
+     "value": "Scale"
+    }
+   }
+  },
+  {
+   "type": "Checkbox",
+   "fn": "checkbox",
+   "category": "input",
+   "summary": "Binary choice.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    },
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "checked": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Checked state.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "terms",
+     "I accept the terms"
+    ],
+    "props": {
+     "checked": true
+    }
+   }
+  },
+  {
+   "type": "Toggle",
+   "fn": "toggle",
+   "category": "input",
+   "summary": "On/off switch.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    },
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "checked": {
+     "kind": "bool",
+     "default": null,
+     "doc": "On state.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "alerts",
+     "Email alerts"
+    ],
+    "props": {
+     "checked": false
+    }
+   }
+  },
+  {
+   "type": "RadioGroup",
+   "fn": "radio_group",
+   "category": "input",
+   "summary": "Choose one option; all options visible.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Group label.",
+     "arg": false
+    },
+    "options": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or [{label, value, detail}].",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Selected value.",
+     "arg": false
+    },
+    "layout": {
+     "kind": "enum:vertical|horizontal|cards",
+     "default": "vertical",
+     "doc": "Arrangement.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "cadence"
+    ],
+    "props": {
+     "label": "Billing",
+     "options": [
+      "Monthly",
+      "Yearly"
+     ],
+     "value": "Yearly"
+    }
+   }
+  },
+  {
+   "type": "Slider",
+   "fn": "slider",
+   "category": "input",
+   "summary": "Numeric range.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "min": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Lower bound.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": "100",
+     "doc": "Upper bound.",
+     "arg": false
+    },
+    "step": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Increment.",
+     "arg": false
+    },
+    "value": {
+     "kind": "num",
+     "default": null,
+     "doc": "Current value.",
+     "arg": false
+    },
+    "unit": {
+     "kind": "str",
+     "default": null,
+     "doc": "Unit suffix.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "seats"
+    ],
+    "props": {
+     "label": "Seats",
+     "min": 1,
+     "max": 50,
+     "value": 12
+    }
+   }
+  },
+  {
+   "type": "Segmented",
+   "fn": "segmented",
+   "category": "input",
+   "summary": "Compact single choice.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "options": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or [{label, value}].",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Selected value.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Group label.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "range"
+    ],
+    "props": {
+     "options": [
+      "Day",
+      "Week",
+      "Month"
+     ],
+     "value": "Week"
+    }
+   }
+  },
+  {
+   "type": "TagInput",
+   "fn": "tag_input",
+   "category": "input",
+   "summary": "Free-form list of tags.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "value": {
+     "kind": "json",
+     "default": null,
+     "doc": "Current tags.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": null,
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "suggestions": {
+     "kind": "json",
+     "default": null,
+     "doc": "Suggested tags.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "labels"
+    ],
+    "props": {
+     "value": [
+      "urgent",
+      "billing"
+     ]
+    }
+   }
+  },
+  {
+   "type": "Rating",
+   "fn": "rating",
+   "category": "input",
+   "summary": "Star rating.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "value": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Current rating.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": "5",
+     "doc": "Number of stars.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "score"
+    ],
+    "props": {
+     "value": 4
+    }
+   }
+  },
+  {
+   "type": "FileDrop",
+   "fn": "file_drop",
+   "category": "input",
+   "summary": "Drop zone for files.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Prompt text.",
+     "arg": false
+    },
+    "accept": {
+     "kind": "str",
+     "default": null,
+     "doc": "Accepted types.",
+     "arg": false
+    },
+    "hint": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "drop"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "receipt"
+    ],
+    "props": {
+     "label": "Drop a receipt",
+     "accept": "image/*"
+    }
+   }
+  },
+  {
+   "type": "Form",
+   "fn": "form",
+   "category": "input",
+   "summary": "Groups fields and emits a single submit event with every value.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    }
+   },
+   "container": true,
+   "events": [
+    "submit"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "profile"
+    ]
+   }
+  },
+  {
+   "type": "Search",
+   "fn": "search",
+   "category": "input",
+   "summary": "Search field with shortcut hint.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": "Search",
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current query.",
+     "arg": false
+    },
+    "kbd": {
+     "kind": "str",
+     "default": null,
+     "doc": "Shortcut hint.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "search",
+    "input"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "q"
+    ],
+    "props": {
+     "placeholder": "Search orders",
+     "kbd": "/"
+    }
+   }
+  },
+  {
+   "type": "Mic",
+   "fn": "mic",
+   "category": "input",
+   "summary": "Voice capture that writes a transcript into a target field.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "target": {
+     "kind": "str",
+     "default": null,
+     "doc": "Name of the field that receives the transcript.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": "Dictate",
+     "doc": "Accessible label.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "transcript"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "voice"
+    ],
+    "props": {
+     "target": "notes"
+    }
+   }
+  },
+  {
+   "type": "Table",
+   "fn": "table",
+   "category": "data",
+   "summary": "Sortable, paginated data table.",
+   "args": [],
+   "props": {
+    "columns": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{key, label, align, format, width}]; format is text|number|currency|percent|date|badge.",
+     "arg": false
+    },
+    "rows": {
+     "kind": "json",
+     "default": null,
+     "doc": "Array of row objects.",
+     "arg": false
+    },
+    "caption": {
+     "kind": "str",
+     "default": null,
+     "doc": "Table caption.",
+     "arg": false
+    },
+    "dense": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Compact rows.",
+     "arg": false
+    },
+    "striped": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Zebra rows.",
+     "arg": false
+    },
+    "sortable": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Enable header sorting.",
+     "arg": false
+    },
+    "pageSize": {
+     "kind": "num",
+     "default": null,
+     "doc": "Rows per page.",
+     "arg": false
+    },
+    "empty": {
+     "kind": "str",
+     "default": "No rows",
+     "doc": "Message when there are no rows.",
+     "arg": false
+    },
+    "query": {
+     "kind": "str",
+     "default": null,
+     "doc": "Active natural-language filter.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "rowClick",
+    "sort"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "columns": [
+      {
+       "key": "name",
+       "label": "Customer"
+      },
+      {
+       "key": "mrr",
+       "label": "MRR",
+       "format": "currency",
+       "align": "end"
+      }
+     ],
+     "rows": [
+      {
+       "name": "Acme",
+       "mrr": 1200.5
+      },
+      {
+       "name": "Globex",
+       "mrr": 860
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Chart",
+   "fn": "chart",
+   "category": "data",
+   "summary": "Bar, line, area, donut, scatter and sparkline charts rendered as SVG.",
+   "args": [
+    {
+     "name": "kind",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "kind": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "data": {
+     "kind": "json",
+     "default": null,
+     "doc": "Array of row objects.",
+     "arg": false
+    },
+    "x": {
+     "kind": "str",
+     "default": null,
+     "doc": "Key for the category or x value.",
+     "arg": false
+    },
+    "y": {
+     "kind": "json",
+     "default": null,
+     "doc": "Key or keys for values.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Chart title.",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": "260",
+     "doc": "Height in px.",
+     "arg": false
+    },
+    "legend": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show the legend.",
+     "arg": false
+    },
+    "annotations": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{x, label, tone}] markers.",
+     "arg": false
+    },
+    "forecast": {
+     "kind": "json",
+     "default": null,
+     "doc": "Projected points drawn as a dashed line.",
+     "arg": false
+    },
+    "stacked": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Stack series.",
+     "arg": false
+    },
+    "format": {
+     "kind": "enum:number|currency|percent|compact",
+     "default": "compact",
+     "doc": "Value format.",
+     "arg": false
+    },
+    "smooth": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Curve line and area series.",
+     "arg": false
+    },
+    "points": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Draw a marker on each point (on by default for short line series).",
+     "arg": false
+    },
+    "baseline": {
+     "kind": "enum:zero|auto",
+     "default": "zero",
+     "doc": "Start the value axis at zero, or near the lowest value for line and area charts.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "pointClick"
+   ],
+   "primary": "kind",
+   "example": {
+    "args": [
+     "bar"
+    ],
+    "props": {
+     "data": [
+      {
+       "m": "Jan",
+       "v": 12
+      },
+      {
+       "m": "Feb",
+       "v": 18
+      }
+     ],
+     "x": "m",
+     "y": "v"
+    }
+   }
+  },
+  {
+   "type": "IntentBar",
+   "fn": "intent_bar",
+   "category": "ai",
+   "summary": "Natural-language command surface that routes utterances to registered actions.",
+   "args": [],
+   "props": {
+    "placeholder": {
+     "kind": "str",
+     "default": "Ask or command…",
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "open": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Visible.",
+     "arg": false
+    },
+    "query": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current utterance.",
+     "arg": false
+    },
+    "suggestions": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, detail, action, icon, kbd, group}].",
+     "arg": false
+    },
+    "hint": {
+     "kind": "str",
+     "default": null,
+     "doc": "Footer hint.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "command"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "open": false,
+     "suggestions": [
+      {
+       "label": "Create invoice",
+       "action": "create_invoice",
+       "icon": "plus"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Copilot",
+   "fn": "copilot",
+   "category": "ai",
+   "summary": "Scene-aware assistant with streaming replies and suggested prompts.",
+   "args": [],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": "Copilot",
+     "doc": "Header title.",
+     "arg": false
+    },
+    "messages": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{role, content}].",
+     "arg": false
+    },
+    "suggestions": {
+     "kind": "json",
+     "default": null,
+     "doc": "Suggested prompts.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": "Ask about this screen",
+     "doc": "Placeholder.",
+     "arg": false
+    },
+    "mode": {
+     "kind": "enum:inline|dock",
+     "default": "inline",
+     "doc": "Presentation.",
+     "arg": false
+    },
+    "thinking": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show the thinking indicator.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "message"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "messages": [
+      {
+       "role": "assistant",
+       "content": "Churn rose 2 points in March."
+      }
+     ],
+     "suggestions": [
+      "Why?"
+     ]
+    }
+   }
+  },
+  {
+   "type": "Suggestions",
+   "fn": "suggestions",
+   "category": "ai",
+   "summary": "Next-best-action chips.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, action, value, icon, detail}].",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Group label.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:chips|list",
+     "default": "chips",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "label": "Send reminder",
+       "action": "remind",
+       "icon": "bell"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Insight",
+   "fn": "insight",
+   "category": "ai",
+   "summary": "Generated finding with supporting points, confidence and provenance.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "body": {
+     "kind": "str",
+     "default": null,
+     "doc": "Finding text.",
+     "arg": false
+    },
+    "bullets": {
+     "kind": "json",
+     "default": null,
+     "doc": "Supporting points.",
+     "arg": false
+    },
+    "confidence": {
+     "kind": "num",
+     "default": null,
+     "doc": "0–1 confidence.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "ai",
+     "doc": "Colour role.",
+     "arg": false
+    },
+    "source": {
+     "kind": "str",
+     "default": null,
+     "doc": "Provenance label.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": "sparkles",
+     "doc": "Icon name.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Revenue is accelerating"
+    ],
+    "props": {
+     "body": "Up 18% over the trailing quarter.",
+     "confidence": 0.82
+    }
+   }
+  },
+  {
+   "type": "Provenance",
+   "fn": "provenance",
+   "category": "ai",
+   "summary": "Discloses that content is generated: provider, model and confidence.",
+   "args": [],
+   "props": {
+    "model": {
+     "kind": "str",
+     "default": null,
+     "doc": "Model identifier.",
+     "arg": false
+    },
+    "provider": {
+     "kind": "str",
+     "default": "reflex",
+     "doc": "openai, reflex, cache or replay.",
+     "arg": false
+    },
+    "confidence": {
+     "kind": "num",
+     "default": null,
+     "doc": "0–1 confidence.",
+     "arg": false
+    },
+    "generatedAt": {
+     "kind": "str",
+     "default": null,
+     "doc": "Timestamp.",
+     "arg": false
+    },
+    "note": {
+     "kind": "str",
+     "default": null,
+     "doc": "Extra context.",
+     "arg": false
+    },
+    "compact": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Badge-only.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "provider": "openai",
+     "model": "gpt-6-luna",
+     "confidence": 0.9
+    }
+   }
+  },
+  {
+   "type": "Confidence",
+   "fn": "confidence",
+   "category": "ai",
+   "summary": "Visual encoding of model certainty.",
+   "args": [
+    {
+     "name": "value",
+     "kind": "num"
+    }
+   ],
+   "props": {
+    "value": {
+     "kind": "num",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Label.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:bar|ring|dots",
+     "default": "bar",
+     "doc": "Visual style.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "args": [
+     0.75
+    ],
+    "props": {
+     "variant": "dots"
+    }
+   }
+  },
+  {
+   "type": "Generative",
+   "fn": "generative",
+   "category": "ai",
+   "summary": "Region whose content is composed at runtime from an intent.",
+   "args": [
+    {
+     "name": "intent",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "intent": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "capability": {
+     "kind": "str",
+     "default": "compose.intent",
+     "doc": "Capability that produces the scene.",
+     "arg": false
+    },
+    "input": {
+     "kind": "json",
+     "default": null,
+     "doc": "Extra capability input.",
+     "arg": false
+    },
+    "state": {
+     "kind": "enum:idle|thinking|ready|error",
+     "default": "idle",
+     "doc": "Lifecycle state.",
+     "arg": false
+    },
+    "auto": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Compose on mount.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "ready"
+   ],
+   "primary": "intent",
+   "example": {
+    "args": [
+     "A compact order summary with total and status"
+    ],
+    "props": {
+     "auto": false
+    }
+   }
+  },
+  {
+   "type": "SmartForm",
+   "fn": "smart_form",
+   "category": "ai",
+   "summary": "Form inferred from a JSON Schema: grouping, labels, help text and input types.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "schema": {
+     "kind": "json",
+     "default": null,
+     "doc": "JSON Schema describing the record.",
+     "arg": false
+    },
+    "values": {
+     "kind": "json",
+     "default": null,
+     "doc": "Current values.",
+     "arg": false
+    },
+    "submitLabel": {
+     "kind": "str",
+     "default": "Save",
+     "doc": "Submit button label.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Form title.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "submit"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "contact"
+    ],
+    "props": {
+     "schema": {
+      "type": "object",
+      "properties": {
+       "email": {
+        "type": "string",
+        "format": "email"
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "type": "Approval",
+   "fn": "approval",
+   "category": "ai",
+   "summary": "Human-in-the-loop checkpoint for an agent action, with a risk rating.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "summary": {
+     "kind": "str",
+     "default": null,
+     "doc": "What will happen.",
+     "arg": false
+    },
+    "risk": {
+     "kind": "enum:low|medium|high",
+     "default": "medium",
+     "doc": "Risk rating.",
+     "arg": false
+    },
+    "details": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{key, value}].",
+     "arg": false
+    },
+    "status": {
+     "kind": "enum:pending|approved|rejected",
+     "default": "pending",
+     "doc": "Decision state.",
+     "arg": false
+    },
+    "agent": {
+     "kind": "str",
+     "default": null,
+     "doc": "Requesting agent.",
+     "arg": false
+    },
+    "approveLabel": {
+     "kind": "str",
+     "default": "Approve",
+     "doc": "Approve button label.",
+     "arg": false
+    },
+    "rejectLabel": {
+     "kind": "str",
+     "default": "Reject",
+     "doc": "Reject button label.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "approve",
+    "reject"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Refund order #4821"
+    ],
+    "props": {
+     "summary": "Refund $129.00 to the original card.",
+     "risk": "medium"
+    }
+   }
+  },
+  {
+   "type": "AgentTimeline",
+   "fn": "agent_timeline",
+   "category": "ai",
+   "summary": "Step-by-step account of what an agent did and why.",
+   "args": [],
+   "props": {
+    "steps": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, status, detail, tool, duration}]; status is done|running|pending|failed.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Header title.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "steps": [
+      {
+       "title": "Read invoice",
+       "status": "done",
+       "tool": "ocr"
+      },
+      {
+       "title": "Match vendor",
+       "status": "running"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Tour",
+   "fn": "tour",
+   "category": "ai",
+   "summary": "Guided walkthrough anchored to elements of the scene.",
+   "args": [],
+   "props": {
+    "steps": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{target, title, body}].",
+     "arg": false
+    },
+    "active": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Running.",
+     "arg": false
+    },
+    "current": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Active step.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "finish"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "steps": [
+      {
+       "target": "save",
+       "title": "Save",
+       "body": "Stores the draft."
+      }
+     ],
+     "active": false
+    }
+   }
+  },
+  {
+   "type": "StreamText",
+   "fn": "stream_text",
+   "category": "ai",
+   "summary": "Text that reveals progressively as tokens arrive.",
+   "args": [
+    {
+     "name": "text",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "text": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "streaming": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Still receiving.",
+     "arg": false
+    },
+    "speed": {
+     "kind": "num",
+     "default": "24",
+     "doc": "Characters per frame when replaying.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "text",
+   "example": {
+    "args": [
+     "Drafting a summary of the last 30 days…"
+    ],
+    "props": {
+     "streaming": true
+    }
+   }
+  },
+  {
+   "type": "Diff",
+   "fn": "diff",
+   "category": "ai",
+   "summary": "Before/after comparison for rewrites.",
+   "args": [
+    {
+     "name": "before",
+     "kind": "str"
+    },
+    {
+     "name": "after",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "before": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "after": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "mode": {
+     "kind": "enum:inline|split",
+     "default": "inline",
+     "doc": "Layout.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Header title.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "before",
+   "example": {
+    "args": [
+     "We can not do that",
+     "That isn't available yet"
+    ],
+    "props": {
+     "title": "Tone: friendly"
+    }
+   }
+  },
+  {
+   "type": "Thinking",
+   "fn": "thinking",
+   "category": "ai",
+   "summary": "Progress indicator for multi-step reasoning.",
+   "args": [
+    {
+     "name": "label",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "steps": {
+     "kind": "json",
+     "default": null,
+     "doc": "Step labels.",
+     "arg": false
+    },
+    "current": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Active step.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "label",
+   "example": {
+    "args": [
+     "Composing layout"
+    ],
+    "props": {
+     "steps": [
+      "Read data",
+      "Choose view"
+     ],
+     "current": 1
+    }
+   }
+  },
+  {
+   "type": "Theme",
+   "fn": "theme",
+   "category": "layout",
+   "summary": "Applies a theme preset or custom tokens to everything inside it.",
+   "args": [],
+   "props": {
+    "preset": {
+     "kind": "enum:deep|abyss|iris|midnight|aurora|sunset|ember|ocean|forest|moss|rose|grape|citrus|sand|graphite|paper|terminal|crimson|candy|mint|gold|sky|emerald|neon|ruby|lagoon|tangerine",
+     "default": null,
+     "doc": "Named palette and type pairing.",
+     "arg": false
+    },
+    "scheme": {
+     "kind": "enum:auto|light|dark",
+     "default": "auto",
+     "doc": "Force a colour scheme.",
+     "arg": false
+    },
+    "fill": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Paint the themed background.",
+     "arg": false
+    },
+    "tokens": {
+     "kind": "json",
+     "default": null,
+     "doc": "Extra tokens: [{name, value}].",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "preset": "midnight"
+    }
+   }
+  },
+  {
+   "type": "Landing",
+   "fn": "landing",
+   "category": "marketing",
+   "summary": "Full-bleed page frame for marketing and storefront pages.",
+   "args": [],
+   "props": {
+    "backdrop": {
+     "kind": "enum:none|glow|grid|mesh|dots|beams|aurora",
+     "default": "none",
+     "doc": "Decorative background.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "backdrop": "glow"
+    }
+   }
+  },
+  {
+   "type": "NavBar",
+   "fn": "nav_bar",
+   "category": "marketing",
+   "summary": "Top navigation with brand, links and actions.",
+   "args": [
+    {
+     "name": "brand",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "brand": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "links": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, href, active, badge}].",
+     "arg": false
+    },
+    "logo": {
+     "kind": "str",
+     "default": "orb",
+     "doc": "Brand mark shape.",
+     "arg": false
+    },
+    "tag": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label next to the brand.",
+     "arg": false
+    },
+    "sticky": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Stick to the top while scrolling.",
+     "arg": false
+    },
+    "glass": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Translucent blurred surface.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:bar|pill",
+     "default": "bar",
+     "doc": "Full-width bar or floating pill.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "navigate"
+   ],
+   "primary": "brand",
+   "example": {
+    "args": [
+     "Lumen"
+    ],
+    "props": {
+     "links": [
+      {
+       "label": "Product",
+       "href": "/product"
+      },
+      {
+       "label": "Pricing",
+       "href": "/pricing"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Band",
+   "fn": "band",
+   "category": "marketing",
+   "summary": "Page section with a centred heading and generous spacing.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label above the title.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line.",
+     "arg": false
+    },
+    "highlight": {
+     "kind": "str",
+     "default": null,
+     "doc": "Part of the title to accent.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center",
+     "default": "center",
+     "doc": "Heading alignment.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:plain|soft|inverse|brand|glow|line",
+     "default": "plain",
+     "doc": "Background treatment.",
+     "arg": false
+    },
+    "width": {
+     "kind": "enum:narrow|default|wide|full",
+     "default": "default",
+     "doc": "Content width.",
+     "arg": false
+    },
+    "pad": {
+     "kind": "enum:none|sm|md|lg",
+     "default": "md",
+     "doc": "Vertical padding.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Everything you need"
+    ],
+    "props": {
+     "eyebrow": "Platform",
+     "subtitle": "One runtime, fourteen languages."
+    }
+   }
+  },
+  {
+   "type": "Bento",
+   "fn": "bento",
+   "category": "marketing",
+   "summary": "Mosaic grid of cells with individual spans.",
+   "args": [],
+   "props": {
+    "columns": {
+     "kind": "num",
+     "default": "6",
+     "doc": "Column tracks.",
+     "arg": false
+    },
+    "rowHeight": {
+     "kind": "num",
+     "default": null,
+     "doc": "Fixed row height in px.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "columns": 6
+    }
+   }
+  },
+  {
+   "type": "BentoCell",
+   "fn": "bento_cell",
+   "category": "marketing",
+   "summary": "One cell of a Bento grid.",
+   "args": [],
+   "props": {
+    "span": {
+     "kind": "num",
+     "default": "2",
+     "doc": "Columns to span.",
+     "arg": false
+    },
+    "rows": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Rows to span.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Cell title.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting text.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:plain|soft|brand|inverse|glow|ai",
+     "default": "plain",
+     "doc": "Surface treatment.",
+     "arg": false
+    },
+    "padding": {
+     "kind": "enum:none|sm|md|lg",
+     "default": "md",
+     "doc": "Inner padding.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "span": 3,
+     "title": "Realtime sync"
+    }
+   }
+  },
+  {
+   "type": "Feature",
+   "fn": "feature",
+   "category": "marketing",
+   "summary": "Icon, title and description for a capability or benefit.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "body": {
+     "kind": "str",
+     "default": null,
+     "doc": "Description.",
+     "arg": false
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "number": {
+     "kind": "str",
+     "default": null,
+     "doc": "Ordinal shown instead of an icon.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label.",
+     "arg": false
+    },
+    "link": {
+     "kind": "str",
+     "default": null,
+     "doc": "Call-to-action text.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Accent colour.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:card|plain|tile|row",
+     "default": "card",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Instant previews"
+    ],
+    "props": {
+     "body": "Every change renders in under a second.",
+     "icon": "bolt"
+    }
+   }
+  },
+  {
+   "type": "LogoCloud",
+   "fn": "logo_cloud",
+   "category": "marketing",
+   "summary": "Row of customer or partner wordmarks drawn from names.",
+   "args": [],
+   "props": {
+    "names": {
+     "kind": "json",
+     "default": null,
+     "doc": "Organisation names.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Line above the logos.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:row|grid",
+     "default": "row",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "label": "Trusted by teams at",
+     "names": [
+      "Arcwell",
+      "Kestrel",
+      "Oakline",
+      "Lumina"
+     ]
+    }
+   }
+  },
+  {
+   "type": "Metrics",
+   "fn": "metrics",
+   "category": "marketing",
+   "summary": "A row of headline numbers.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{value, label, detail}].",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:plain|cards|divided",
+     "default": "plain",
+     "doc": "Presentation.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center",
+     "default": "center",
+     "doc": "Alignment.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "value": "99.99%",
+       "label": "Uptime"
+      },
+      {
+       "value": "42 ms",
+       "label": "Median latency"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Testimonial",
+   "fn": "testimonial",
+   "category": "marketing",
+   "summary": "A customer quote with attribution.",
+   "args": [
+    {
+     "name": "quote",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "quote": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "author": {
+     "kind": "str",
+     "default": null,
+     "doc": "Person quoted.",
+     "arg": false
+    },
+    "role": {
+     "kind": "str",
+     "default": null,
+     "doc": "Their role.",
+     "arg": false
+    },
+    "company": {
+     "kind": "str",
+     "default": null,
+     "doc": "Their organisation.",
+     "arg": false
+    },
+    "rating": {
+     "kind": "num",
+     "default": null,
+     "doc": "Stars out of five.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:card|large|compact",
+     "default": "card",
+     "doc": "Size.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "quote",
+   "example": {
+    "args": [
+     "We shipped in a week."
+    ],
+    "props": {
+     "author": "Ines Duarte",
+     "role": "CTO",
+     "company": "Oakline"
+    }
+   }
+  },
+  {
+   "type": "PricingCard",
+   "fn": "pricing_card",
+   "category": "marketing",
+   "summary": "A plan with price, features and a call to action.",
+   "args": [
+    {
+     "name": "plan",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "plan": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "price": {
+     "kind": "str",
+     "default": null,
+     "doc": "Displayed price.",
+     "arg": false
+    },
+    "period": {
+     "kind": "str",
+     "default": null,
+     "doc": "Billing period.",
+     "arg": false
+    },
+    "description": {
+     "kind": "str",
+     "default": null,
+     "doc": "Who the plan is for.",
+     "arg": false
+    },
+    "features": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or {label, included}.",
+     "arg": false
+    },
+    "cta": {
+     "kind": "str",
+     "default": "Choose plan",
+     "doc": "Button label.",
+     "arg": false
+    },
+    "featured": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Highlight this plan.",
+     "arg": false
+    },
+    "badge": {
+     "kind": "str",
+     "default": null,
+     "doc": "Ribbon text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": "plan",
+   "example": {
+    "args": [
+     "Team"
+    ],
+    "props": {
+     "price": "$24",
+     "period": "per seat / month",
+     "features": [
+      "Unlimited projects",
+      "SSO"
+     ],
+     "featured": true
+    }
+   }
+  },
+  {
+   "type": "Comparison",
+   "fn": "comparison",
+   "category": "marketing",
+   "summary": "Feature comparison across plans.",
+   "args": [],
+   "props": {
+    "plans": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{name, price, featured}].",
+     "arg": false
+    },
+    "rows": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, values}] or {group}.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Heading of the first column.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "plans": [
+      {
+       "name": "Free"
+      },
+      {
+       "name": "Pro",
+       "featured": true
+      }
+     ],
+     "rows": [
+      {
+       "label": "Projects",
+       "values": [
+        "3",
+        "Unlimited"
+       ]
+      },
+      {
+       "label": "SSO",
+       "values": [
+        false,
+        true
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "FAQ",
+   "fn": "f_a_q",
+   "category": "marketing",
+   "summary": "Questions that expand to reveal answers.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{q, a}].",
+     "arg": false
+    },
+    "open": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Index open at first; -1 for none.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "q": "Can I self-host?",
+       "a": "Yes. The engine is one Python process."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "CTA",
+   "fn": "c_t_a",
+   "category": "marketing",
+   "summary": "Closing call to action.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label.",
+     "arg": false
+    },
+    "highlight": {
+     "kind": "str",
+     "default": null,
+     "doc": "Part of the title to accent.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:gradient|brand|inverse|soft|plain",
+     "default": "gradient",
+     "doc": "Background.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center",
+     "default": "center",
+     "doc": "Alignment.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Start building today"
+    ],
+    "props": {
+     "subtitle": "Free for individuals."
+    }
+   }
+  },
+  {
+   "type": "Footer",
+   "fn": "footer",
+   "category": "marketing",
+   "summary": "Site footer with link columns.",
+   "args": [
+    {
+     "name": "brand",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "brand": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "tagline": {
+     "kind": "str",
+     "default": null,
+     "doc": "Line under the brand.",
+     "arg": false
+    },
+    "columns": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{title, links}].",
+     "arg": false
+    },
+    "note": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small print.",
+     "arg": false
+    },
+    "logo": {
+     "kind": "str",
+     "default": "orb",
+     "doc": "Brand mark shape.",
+     "arg": false
+    },
+    "social": {
+     "kind": "json",
+     "default": null,
+     "doc": "Icon names.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "brand",
+   "example": {
+    "args": [
+     "Lumen"
+    ],
+    "props": {
+     "columns": [
+      {
+       "title": "Product",
+       "links": [
+        "Features",
+        "Pricing"
+       ]
+      }
+     ],
+     "note": "© 2026 Lumen Labs"
+    }
+   }
+  },
+  {
+   "type": "PromoTile",
+   "fn": "promo_tile",
+   "category": "marketing",
+   "summary": "Large promotional tile with artwork.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line.",
+     "arg": false
+    },
+    "eyebrow": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small label.",
+     "arg": false
+    },
+    "highlight": {
+     "kind": "str",
+     "default": null,
+     "doc": "Part of the title to accent.",
+     "arg": false
+    },
+    "art": {
+     "kind": "json",
+     "default": null,
+     "doc": "Artwork: {kind, hue, hue2, seed, ratio, variant, label, tone}.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:light|dark|tint|brand",
+     "default": "light",
+     "doc": "Surface.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:sm|md|lg|xl",
+     "default": "md",
+     "doc": "Height.",
+     "arg": false
+    },
+    "layout": {
+     "kind": "enum:stack|split|overlay",
+     "default": "stack",
+     "doc": "Copy and art arrangement.",
+     "arg": false
+    },
+    "align": {
+     "kind": "enum:start|center",
+     "default": "center",
+     "doc": "Copy alignment.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Halo One"
+    ],
+    "props": {
+     "subtitle": "See further.",
+     "art": {
+      "kind": "glasses",
+      "hue": 250
+     }
+    }
+   }
+  },
+  {
+   "type": "ProductCard",
+   "fn": "product_card",
+   "category": "commerce",
+   "summary": "A product with artwork, price and rating.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "price": {
+     "kind": "str",
+     "default": null,
+     "doc": "Displayed price.",
+     "arg": false
+    },
+    "compareAt": {
+     "kind": "str",
+     "default": null,
+     "doc": "Struck-through former price.",
+     "arg": false
+    },
+    "brand": {
+     "kind": "str",
+     "default": null,
+     "doc": "Maker.",
+     "arg": false
+    },
+    "detail": {
+     "kind": "str",
+     "default": null,
+     "doc": "One-line description.",
+     "arg": false
+    },
+    "rating": {
+     "kind": "num",
+     "default": null,
+     "doc": "Average rating out of five.",
+     "arg": false
+    },
+    "reviews": {
+     "kind": "num",
+     "default": null,
+     "doc": "Review count.",
+     "arg": false
+    },
+    "badge": {
+     "kind": "str",
+     "default": null,
+     "doc": "Corner label.",
+     "arg": false
+    },
+    "art": {
+     "kind": "json",
+     "default": null,
+     "doc": "Artwork: {kind, hue, hue2, seed, ratio, variant, label, tone}.",
+     "arg": false
+    },
+    "swatches": {
+     "kind": "json",
+     "default": null,
+     "doc": "Colour values.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:card|plain|row",
+     "default": "card",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select",
+    "add"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "Night Serum"
+    ],
+    "props": {
+     "price": "$48",
+     "rating": 4.8,
+     "reviews": 312,
+     "art": {
+      "kind": "bottle",
+      "hue": 290
+     }
+    }
+   }
+  },
+  {
+   "type": "Cart",
+   "fn": "cart",
+   "category": "commerce",
+   "summary": "Line items with artwork and quantity steppers.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{name, variant, price, qty, art}].",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "name": "Night Serum",
+       "variant": "30 ml",
+       "price": "$48",
+       "qty": 1
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "OrderSummary",
+   "fn": "order_summary",
+   "category": "commerce",
+   "summary": "Totals for an order, with room for actions.",
+   "args": [],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Heading.",
+     "arg": false
+    },
+    "lines": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, value, tone}].",
+     "arg": false
+    },
+    "total": {
+     "kind": "str",
+     "default": null,
+     "doc": "Grand total.",
+     "arg": false
+    },
+    "totalLabel": {
+     "kind": "str",
+     "default": "Total",
+     "doc": "Label of the total row.",
+     "arg": false
+    },
+    "note": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small print.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "lines": [
+      {
+       "label": "Subtotal",
+       "value": "$96.00"
+      },
+      {
+       "label": "Shipping",
+       "value": "Free",
+       "tone": "success"
+      }
+     ],
+     "total": "$96.00"
+    }
+   }
+  },
+  {
+   "type": "Swatches",
+   "fn": "swatches",
+   "category": "input",
+   "summary": "Choose one option from colour or text chips.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "options": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or {label, color, disabled}.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Selected option.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:color|text",
+     "default": null,
+     "doc": "Chip style.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "colour"
+    ],
+    "props": {
+     "label": "Colour",
+     "options": [
+      {
+       "label": "Sand",
+       "color": "#d9c7a8"
+      },
+      {
+       "label": "Ink",
+       "color": "#1d2230"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Quantity",
+   "fn": "quantity",
+   "category": "input",
+   "summary": "Numeric stepper.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "value": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Current value.",
+     "arg": false
+    },
+    "min": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Lowest value.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": "99",
+     "doc": "Highest value.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "change"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "qty"
+    ],
+    "props": {
+     "label": "Quantity",
+     "value": 2
+    }
+   }
+  },
+  {
+   "type": "PinInput",
+   "fn": "pin_input",
+   "category": "input",
+   "summary": "One box per digit for verification codes.",
+   "args": [
+    {
+     "name": "name",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "name": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Field label.",
+     "arg": false
+    },
+    "length": {
+     "kind": "num",
+     "default": "6",
+     "doc": "Number of digits.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current value.",
+     "arg": false
+    },
+    "help": {
+     "kind": "str",
+     "default": null,
+     "doc": "Helper text.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "complete"
+   ],
+   "primary": "name",
+   "example": {
+    "args": [
+     "code"
+    ],
+    "props": {
+     "label": "Verification code",
+     "length": 6
+    }
+   }
+  },
+  {
+   "type": "RatingSummary",
+   "fn": "rating_summary",
+   "category": "commerce",
+   "summary": "Average rating with a distribution of scores.",
+   "args": [],
+   "props": {
+    "average": {
+     "kind": "num",
+     "default": null,
+     "doc": "Mean score.",
+     "arg": false
+    },
+    "count": {
+     "kind": "num",
+     "default": null,
+     "doc": "Number of reviews.",
+     "arg": false
+    },
+    "distribution": {
+     "kind": "json",
+     "default": null,
+     "doc": "Counts from five stars down to one.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "average": 4.7,
+     "count": 1284,
+     "distribution": [
+      940,
+      250,
+      60,
+      20,
+      14
+     ]
+    }
+   }
+  },
+  {
+   "type": "MediaGallery",
+   "fn": "media_gallery",
+   "category": "commerce",
+   "summary": "Large artwork with selectable thumbnails.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "Artwork specs: {kind, hue, hue2, seed, ratio, variant, label, tone}.",
+     "arg": false
+    },
+    "active": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Selected index.",
+     "arg": false
+    },
+    "layout": {
+     "kind": "enum:bottom|side",
+     "default": "bottom",
+     "doc": "Thumbnail position.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "kind": "bottle",
+       "hue": 290
+      },
+      {
+       "kind": "jar",
+       "hue": 290
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Art",
+   "fn": "art",
+   "category": "visual",
+   "summary": "Procedural artwork: product shots, landscapes and abstract backdrops.",
+   "args": [
+    {
+     "name": "kind",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "kind": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "hue": {
+     "kind": "num",
+     "default": null,
+     "doc": "Base hue in degrees; omit to follow the theme.",
+     "arg": false
+    },
+    "hue2": {
+     "kind": "num",
+     "default": null,
+     "doc": "Secondary hue.",
+     "arg": false
+    },
+    "seed": {
+     "kind": "num",
+     "default": null,
+     "doc": "Variation.",
+     "arg": false
+    },
+    "ratio": {
+     "kind": "str",
+     "default": "4:3",
+     "doc": "Aspect ratio.",
+     "arg": false
+    },
+    "width": {
+     "kind": "num",
+     "default": null,
+     "doc": "Fixed width in px; fills the available width when omitted.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "str",
+     "default": null,
+     "doc": "Kind-specific variant.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text drawn into the artwork.",
+     "arg": false
+    },
+    "glyph": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon for the glyph kind.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:light|dark",
+     "default": "light",
+     "doc": "Backdrop.",
+     "arg": false
+    },
+    "rounded": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Round the corners.",
+     "arg": false
+    },
+    "shadow": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Raise with a shadow.",
+     "arg": false
+    },
+    "bare": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Product kinds only: omit the backdrop.",
+     "arg": false
+    },
+    "fit": {
+     "kind": "enum:cover|contain",
+     "default": "cover",
+     "doc": "How the drawing fills its box.",
+     "arg": false
+    },
+    "caption": {
+     "kind": "str",
+     "default": null,
+     "doc": "Caption over the artwork.",
+     "arg": false
+    },
+    "alt": {
+     "kind": "str",
+     "default": null,
+     "doc": "Accessible description.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": "kind",
+   "example": {
+    "args": [
+     "peaks"
+    ],
+    "props": {
+     "hue": 220,
+     "ratio": "16:9"
+    }
+   }
+  },
+  {
+   "type": "DeviceFrame",
+   "fn": "device_frame",
+   "category": "visual",
+   "summary": "Phone, tablet, laptop or browser frame around any content.",
+   "args": [],
+   "props": {
+    "kind": {
+     "kind": "enum:phone|tablet|laptop|browser|window",
+     "default": "phone",
+     "doc": "Device.",
+     "arg": false
+    },
+    "platform": {
+     "kind": "enum:ios|android|web",
+     "default": null,
+     "doc": "Platform skin for the content.",
+     "arg": false
+    },
+    "theme": {
+     "kind": "enum:deep|abyss|iris|midnight|aurora|sunset|ember|ocean|forest|moss|rose|grape|citrus|sand|graphite|paper|terminal|crimson|candy|mint|gold|sky|emerald|neon|ruby|lagoon|tangerine",
+     "default": null,
+     "doc": "Theme preset inside the frame.",
+     "arg": false
+    },
+    "scheme": {
+     "kind": "enum:auto|light|dark",
+     "default": "auto",
+     "doc": "Colour scheme inside the frame.",
+     "arg": false
+    },
+    "url": {
+     "kind": "str",
+     "default": null,
+     "doc": "Address shown by the browser frame.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Window title.",
+     "arg": false
+    },
+    "time": {
+     "kind": "str",
+     "default": "9:41",
+     "doc": "Status bar clock.",
+     "arg": false
+    },
+    "width": {
+     "kind": "num",
+     "default": null,
+     "doc": "Frame width in px.",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": null,
+     "doc": "Screen height in px.",
+     "arg": false
+    },
+    "scale": {
+     "kind": "num",
+     "default": "1",
+     "doc": "Zoom factor.",
+     "arg": false
+    },
+    "caption": {
+     "kind": "str",
+     "default": null,
+     "doc": "Label under the device.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "kind": "phone",
+     "platform": "ios"
+    }
+   }
+  },
+  {
+   "type": "Screen",
+   "fn": "screen",
+   "category": "visual",
+   "summary": "A mobile app screen: title bar, scrolling body, tab bar and floating action.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Line under the title.",
+     "arg": false
+    },
+    "large": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Use a large title.",
+     "arg": false
+    },
+    "leading": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon of the leading button.",
+     "arg": false
+    },
+    "trailing": {
+     "kind": "json",
+     "default": null,
+     "doc": "Icon names of trailing buttons.",
+     "arg": false
+    },
+    "avatar": {
+     "kind": "str",
+     "default": null,
+     "doc": "Name for a trailing avatar.",
+     "arg": false
+    },
+    "tabs": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, icon, active, badge, route}].",
+     "arg": false
+    },
+    "fab": {
+     "kind": "json",
+     "default": null,
+     "doc": "{icon, label} for a floating action.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:plain|brand|tint",
+     "default": "plain",
+     "doc": "Bar treatment.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "action",
+    "navigate"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Today"
+    ],
+    "props": {
+     "tabs": [
+      {
+       "label": "Home",
+       "icon": "home",
+       "active": true
+      },
+      {
+       "label": "Search",
+       "icon": "search"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Rings",
+   "fn": "rings",
+   "category": "visual",
+   "summary": "Concentric progress rings.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, value, max, display, color}].",
+     "arg": false
+    },
+    "size": {
+     "kind": "num",
+     "default": "168",
+     "doc": "Diameter in px.",
+     "arg": false
+    },
+    "center": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text in the middle.",
+     "arg": false
+    },
+    "legend": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show the legend.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "label": "Move",
+       "value": 420,
+       "max": 600
+      },
+      {
+       "label": "Exercise",
+       "value": 24,
+       "max": 30
+      }
+     ],
+     "center": "70%"
+    }
+   }
+  },
+  {
+   "type": "Gauge",
+   "fn": "gauge",
+   "category": "visual",
+   "summary": "Arc gauge for a single value.",
+   "args": [],
+   "props": {
+    "value": {
+     "kind": "num",
+     "default": null,
+     "doc": "Current value.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": "100",
+     "doc": "Full scale.",
+     "arg": false
+    },
+    "display": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text shown instead of the value.",
+     "arg": false
+    },
+    "unit": {
+     "kind": "str",
+     "default": null,
+     "doc": "Unit under the value.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Caption.",
+     "arg": false
+    },
+    "detail": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    },
+    "size": {
+     "kind": "num",
+     "default": "180",
+     "doc": "Diameter in px.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "value": 72,
+     "unit": "°F",
+     "label": "Living room"
+    }
+   }
+  },
+  {
+   "type": "Sparkline",
+   "fn": "sparkline",
+   "category": "visual",
+   "summary": "Compact trend line or bars.",
+   "args": [],
+   "props": {
+    "values": {
+     "kind": "json",
+     "default": null,
+     "doc": "Numbers.",
+     "arg": false
+    },
+    "kind": {
+     "kind": "enum:area|line|bar",
+     "default": "area",
+     "doc": "Style.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    },
+    "width": {
+     "kind": "num",
+     "default": "160",
+     "doc": "Width in px.",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": "44",
+     "doc": "Height in px.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "values": [
+      4,
+      6,
+      5,
+      9,
+      12,
+      10,
+      14
+     ]
+    }
+   }
+  },
+  {
+   "type": "Heatmap",
+   "fn": "heatmap",
+   "category": "visual",
+   "summary": "Grid of cells shaded by value.",
+   "args": [],
+   "props": {
+    "values": {
+     "kind": "json",
+     "default": null,
+     "doc": "Rows of numbers, or a flat list with `columns`.",
+     "arg": false
+    },
+    "columns": {
+     "kind": "num",
+     "default": "7",
+     "doc": "Row length for a flat list.",
+     "arg": false
+    },
+    "rowLabels": {
+     "kind": "json",
+     "default": null,
+     "doc": "Labels at the left.",
+     "arg": false
+    },
+    "colLabels": {
+     "kind": "json",
+     "default": null,
+     "doc": "Labels on top.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": null,
+     "doc": "Value mapped to full intensity.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    },
+    "shape": {
+     "kind": "enum:square|round",
+     "default": "square",
+     "doc": "Cell shape.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Accessible description.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "values": [
+      [
+       1,
+       4,
+       2,
+       0,
+       5,
+       3,
+       1
+      ],
+      [
+       2,
+       5,
+       3,
+       1,
+       4,
+       6,
+       2
+      ]
+     ],
+     "rowLabels": [
+      "Mon",
+      "Tue"
+     ]
+    }
+   }
+  },
+  {
+   "type": "BarList",
+   "fn": "bar_list",
+   "category": "visual",
+   "summary": "Ranked list with proportional bars.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, value, display, detail, icon, hue, color}].",
+     "arg": false
+    },
+    "format": {
+     "kind": "enum:number|compact|currency|percent",
+     "default": "compact",
+     "doc": "Value format.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": null,
+     "doc": "Full-width value.",
+     "arg": false
+    },
+    "ranked": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show rank numbers.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:bar|fill",
+     "default": "bar",
+     "doc": "Bar under the row or behind it.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "label": "atlas-large",
+       "value": 48200
+      },
+      {
+       "label": "quill-mini",
+       "value": 31900
+      }
+     ],
+     "ranked": true
+    }
+   }
+  },
+  {
+   "type": "Ticker",
+   "fn": "ticker",
+   "category": "visual",
+   "summary": "Prices with change and a mini trend.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{symbol, name, price, change, spark}].",
+     "arg": false
+    },
+    "layout": {
+     "kind": "enum:list|row",
+     "default": "list",
+     "doc": "Arrangement.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "symbol": "NWD",
+       "name": "Northwind",
+       "price": "$184.20",
+       "change": "+1.4%",
+       "spark": [
+        3,
+        4,
+        3,
+        5,
+        6
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "MapView",
+   "fn": "map_view",
+   "category": "visual",
+   "summary": "Stylised city or world map with pins and routes.",
+   "args": [],
+   "props": {
+    "kind": {
+     "kind": "enum:city|world",
+     "default": "city",
+     "doc": "Map style.",
+     "arg": false
+    },
+    "pins": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{x, y, label, tone, pulse}] or [{lon, lat, …}] on the world map.",
+     "arg": false
+    },
+    "routes": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{points, tone, dashed}].",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": "360",
+     "doc": "Height in px.",
+     "arg": false
+    },
+    "seed": {
+     "kind": "num",
+     "default": null,
+     "doc": "Street layout variation.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Accessible description.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "kind": "world",
+     "pins": [
+      {
+       "lon": -74,
+       "lat": 40.7,
+       "label": "New York"
+      },
+      {
+       "lon": 139.7,
+       "lat": 35.7,
+       "label": "Tokyo"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Candles",
+   "fn": "candles",
+   "category": "data",
+   "summary": "Candlestick chart with optional volume.",
+   "args": [],
+   "props": {
+    "data": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{t, o, h, l, c, v}].",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": "280",
+     "doc": "Height in px.",
+     "arg": false
+    },
+    "volume": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show volume bars.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Chart title.",
+     "arg": false
+    },
+    "format": {
+     "kind": "enum:number|currency|compact",
+     "default": "number",
+     "doc": "Axis format.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "data": [
+      {
+       "t": "09:30",
+       "o": 10,
+       "h": 12,
+       "l": 9,
+       "c": 11,
+       "v": 30
+      },
+      {
+       "t": "10:00",
+       "o": 11,
+       "h": 13,
+       "l": 10,
+       "c": 12.5,
+       "v": 44
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Funnel",
+   "fn": "funnel",
+   "category": "data",
+   "summary": "Stages of a conversion funnel.",
+   "args": [],
+   "props": {
+    "stages": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, value}].",
+     "arg": false
+    },
+    "format": {
+     "kind": "enum:number|compact|currency|percent",
+     "default": "compact",
+     "doc": "Value format.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "stages": [
+      {
+       "label": "Visited",
+       "value": 12000
+      },
+      {
+       "label": "Signed up",
+       "value": 3100
+      },
+      {
+       "label": "Paid",
+       "value": 640
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Waveform",
+   "fn": "waveform",
+   "category": "visual",
+   "summary": "Audio waveform with a played portion.",
+   "args": [],
+   "props": {
+    "values": {
+     "kind": "json",
+     "default": null,
+     "doc": "Amplitudes; generated when omitted.",
+     "arg": false
+    },
+    "bars": {
+     "kind": "num",
+     "default": "56",
+     "doc": "Bars to generate.",
+     "arg": false
+    },
+    "progress": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Played fraction from 0 to 1.",
+     "arg": false
+    },
+    "height": {
+     "kind": "num",
+     "default": "48",
+     "doc": "Height in px.",
+     "arg": false
+    },
+    "seed": {
+     "kind": "num",
+     "default": null,
+     "doc": "Variation.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Colour.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Accessible description.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "progress": 0.4
+    }
+   }
+  },
+  {
+   "type": "Calendar",
+   "fn": "calendar",
+   "category": "data",
+   "summary": "Month grid with events.",
+   "args": [
+    {
+     "name": "month",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "month": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "events": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{day, label, tone}].",
+     "arg": false
+    },
+    "selected": {
+     "kind": "num",
+     "default": null,
+     "doc": "Selected day.",
+     "arg": false
+    },
+    "today": {
+     "kind": "num",
+     "default": null,
+     "doc": "Day marked as today.",
+     "arg": false
+    },
+    "compact": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Small cells with dots.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select",
+    "navigate"
+   ],
+   "primary": "month",
+   "example": {
+    "args": [
+     "2026-11"
+    ],
+    "props": {
+     "events": [
+      {
+       "day": 12,
+       "label": "Launch",
+       "tone": "brand"
+      }
+     ],
+     "today": 19
+    }
+   }
+  },
+  {
+   "type": "Schedule",
+   "fn": "schedule",
+   "category": "data",
+   "summary": "Day agenda on an hourly grid, with optional lanes.",
+   "args": [],
+   "props": {
+    "items": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{start, end, title, detail, tone, lane}].",
+     "arg": false
+    },
+    "from": {
+     "kind": "num",
+     "default": "8",
+     "doc": "First hour.",
+     "arg": false
+    },
+    "to": {
+     "kind": "num",
+     "default": "18",
+     "doc": "Last hour.",
+     "arg": false
+    },
+    "lanes": {
+     "kind": "json",
+     "default": null,
+     "doc": "Lane titles.",
+     "arg": false
+    },
+    "now": {
+     "kind": "str",
+     "default": null,
+     "doc": "Current time marker.",
+     "arg": false
+    },
+    "rowHeight": {
+     "kind": "num",
+     "default": "46",
+     "doc": "Pixels per hour.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "select"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "items": [
+      {
+       "start": "09:00",
+       "end": "10:30",
+       "title": "Design review"
+      }
+     ],
+     "from": 8,
+     "to": 13
+    }
+   }
+  },
+  {
+   "type": "Roadmap",
+   "fn": "roadmap",
+   "category": "data",
+   "summary": "Horizontal bars across time columns.",
+   "args": [],
+   "props": {
+    "columns": {
+     "kind": "json",
+     "default": null,
+     "doc": "Column labels.",
+     "arg": false
+    },
+    "rows": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{label, avatar, bars: [{start, end, label, tone, progress}]}].",
+     "arg": false
+    },
+    "today": {
+     "kind": "num",
+     "default": null,
+     "doc": "Position of the today marker.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Heading of the label column.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "columns": [
+      "W1",
+      "W2",
+      "W3",
+      "W4"
+     ],
+     "rows": [
+      {
+       "label": "Checkout",
+       "bars": [
+        {
+         "start": 0,
+         "end": 2.5,
+         "label": "Build",
+         "progress": 60
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Chat",
+   "fn": "chat",
+   "category": "content",
+   "summary": "Conversation with bubbles, tool calls and a composer.",
+   "args": [],
+   "props": {
+    "messages": {
+     "kind": "json",
+     "default": null,
+     "doc": "[{from, name, text, time, status, rich, tool, citations, chips, art}]; from is me|them|ai|system.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Conversation title.",
+     "arg": false
+    },
+    "subtitle": {
+     "kind": "str",
+     "default": null,
+     "doc": "Line under the title.",
+     "arg": false
+    },
+    "status": {
+     "kind": "enum:online|away|busy",
+     "default": null,
+     "doc": "Presence of the other party.",
+     "arg": false
+    },
+    "actions": {
+     "kind": "json",
+     "default": null,
+     "doc": "Icon names for header buttons.",
+     "arg": false
+    },
+    "composer": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show the message box.",
+     "arg": false
+    },
+    "placeholder": {
+     "kind": "str",
+     "default": "Message",
+     "doc": "Composer placeholder.",
+     "arg": false
+    },
+    "typing": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Show a typing indicator.",
+     "arg": false
+    },
+    "avatars": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show avatars.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:bubbles|flat",
+     "default": "bubbles",
+     "doc": "Message style.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "send",
+    "action"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "title": "Ana Lima",
+     "messages": [
+      {
+       "from": "them",
+       "text": "Are we still on for 3?"
+      },
+      {
+       "from": "me",
+       "text": "Yes — see you then."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Terminal",
+   "fn": "terminal",
+   "category": "content",
+   "summary": "Terminal window with commands and output.",
+   "args": [],
+   "props": {
+    "lines": {
+     "kind": "json",
+     "default": null,
+     "doc": "Strings or {text, kind}; kind is cmd|out|ok|warn|err|dim.",
+     "arg": false
+    },
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Window title.",
+     "arg": false
+    },
+    "tabs": {
+     "kind": "json",
+     "default": null,
+     "doc": "Tab labels.",
+     "arg": false
+    },
+    "active": {
+     "kind": "num",
+     "default": "0",
+     "doc": "Active tab.",
+     "arg": false
+    },
+    "prompt": {
+     "kind": "str",
+     "default": "$",
+     "doc": "Prompt symbol.",
+     "arg": false
+    },
+    "cursor": {
+     "kind": "bool",
+     "default": "true",
+     "doc": "Show a cursor.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "lines": [
+      "$ fluidian new app --lang go",
+      {
+       "text": "Created app/main.go",
+       "kind": "ok"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "Player",
+   "fn": "player",
+   "category": "content",
+   "summary": "Media player with artwork, progress and transport controls.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "artist": {
+     "kind": "str",
+     "default": null,
+     "doc": "Artist or source.",
+     "arg": false
+    },
+    "art": {
+     "kind": "json",
+     "default": null,
+     "doc": "Artwork: {kind, hue, hue2, seed, ratio, variant, label, tone}.",
+     "arg": false
+    },
+    "progress": {
+     "kind": "num",
+     "default": null,
+     "doc": "Seconds played.",
+     "arg": false
+    },
+    "duration": {
+     "kind": "num",
+     "default": null,
+     "doc": "Length in seconds.",
+     "arg": false
+    },
+    "playing": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Playing.",
+     "arg": false
+    },
+    "variant": {
+     "kind": "enum:card|bar|large",
+     "default": "card",
+     "doc": "Layout.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "toggle",
+    "control"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Low Tide"
+    ],
+    "props": {
+     "artist": "Marlowe Quartet",
+     "progress": 74,
+     "duration": 212
+    }
+   }
+  },
+  {
+   "type": "AvatarStack",
+   "fn": "avatar_stack",
+   "category": "content",
+   "summary": "Overlapping avatars with an overflow count.",
+   "args": [],
+   "props": {
+    "names": {
+     "kind": "json",
+     "default": null,
+     "doc": "People.",
+     "arg": false
+    },
+    "max": {
+     "kind": "num",
+     "default": "4",
+     "doc": "Avatars shown before the count.",
+     "arg": false
+    },
+    "size": {
+     "kind": "enum:sm|md|lg",
+     "default": "sm",
+     "doc": "Avatar size.",
+     "arg": false
+    },
+    "label": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text after the stack.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "names": [
+      "Mira Okafor",
+      "Jonas Weber",
+      "Ana Lima",
+      "Kenji Sato",
+      "Priya Nair"
+     ],
+     "label": "5 online"
+    }
+   }
+  },
+  {
+   "type": "ControlTile",
+   "fn": "control_tile",
+   "category": "input",
+   "summary": "Toggle tile for a device, scene or quick action.",
+   "args": [
+    {
+     "name": "title",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "title": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "icon": {
+     "kind": "str",
+     "default": null,
+     "doc": "Icon name.",
+     "arg": false
+    },
+    "on": {
+     "kind": "bool",
+     "default": null,
+     "doc": "Active.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text when on.",
+     "arg": false
+    },
+    "offValue": {
+     "kind": "str",
+     "default": "Off",
+     "doc": "Text when off.",
+     "arg": false
+    },
+    "detail": {
+     "kind": "str",
+     "default": null,
+     "doc": "Supporting line.",
+     "arg": false
+    },
+    "tone": {
+     "kind": "enum:neutral|brand|success|warning|danger|info|ai",
+     "default": "brand",
+     "doc": "Accent.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "toggle"
+   ],
+   "primary": "title",
+   "example": {
+    "args": [
+     "Living room"
+    ],
+    "props": {
+     "icon": "bulb",
+     "on": true,
+     "value": "70%"
+    }
+   }
+  },
+  {
+   "type": "PromptBox",
+   "fn": "prompt_box",
+   "category": "ai",
+   "summary": "Large prompt composer with modes and starter chips.",
+   "args": [],
+   "props": {
+    "placeholder": {
+     "kind": "str",
+     "default": null,
+     "doc": "Placeholder text.",
+     "arg": false
+    },
+    "value": {
+     "kind": "str",
+     "default": null,
+     "doc": "Initial text.",
+     "arg": false
+    },
+    "chips": {
+     "kind": "json",
+     "default": null,
+     "doc": "Starter prompts.",
+     "arg": false
+    },
+    "modes": {
+     "kind": "json",
+     "default": null,
+     "doc": "Mode labels.",
+     "arg": false
+    },
+    "mode": {
+     "kind": "str",
+     "default": null,
+     "doc": "Selected mode.",
+     "arg": false
+    },
+    "hint": {
+     "kind": "str",
+     "default": null,
+     "doc": "Small text beside the send button.",
+     "arg": false
+    },
+    "button": {
+     "kind": "str",
+     "default": null,
+     "doc": "Send button label.",
+     "arg": false
+    },
+    "rows": {
+     "kind": "num",
+     "default": "2",
+     "doc": "Visible text rows.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [
+    "submit"
+   ],
+   "primary": null,
+   "example": {
+    "props": {
+     "placeholder": "Describe the screen you need…",
+     "chips": [
+      "A pricing page",
+      "An order tracker"
+     ],
+     "modes": [
+      "Plan",
+      "Build"
+     ]
+    }
+   }
+  },
+  {
+   "type": "State",
+   "fn": "state",
+   "category": "logic",
+   "summary": "Declares client-side state for bindings and portable actions.",
+   "args": [],
+   "props": {
+    "values": {
+     "kind": "json",
+     "default": null,
+     "doc": "Initial values by name.",
+     "arg": false
+    }
+   },
+   "container": false,
+   "events": [],
+   "primary": null,
+   "example": {
+    "props": {
+     "values": {
+      "count": 0,
+      "todos": []
+     }
+    }
+   }
+  },
+  {
+   "type": "Show",
+   "fn": "show",
+   "category": "logic",
+   "summary": "Renders its children only while an expression is true.",
+   "args": [
+    {
+     "name": "when",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "when": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "when",
+   "example": {
+    "args": [
+     "count > 0"
+    ]
+   }
+  },
+  {
+   "type": "Each",
+   "fn": "each",
+   "category": "logic",
+   "summary": "Repeats its children for every item of a list.",
+   "args": [
+    {
+     "name": "items",
+     "kind": "str"
+    }
+   ],
+   "props": {
+    "items": {
+     "kind": "str",
+     "default": null,
+     "doc": "Positional argument.",
+     "arg": true
+    },
+    "as": {
+     "kind": "str",
+     "default": "item",
+     "doc": "Name of the item in bindings.",
+     "arg": false
+    },
+    "empty": {
+     "kind": "str",
+     "default": null,
+     "doc": "Text shown when the list is empty.",
+     "arg": false
+    },
+    "layout": {
+     "kind": "enum:stack|row|grid",
+     "default": "stack",
+     "doc": "Arrangement.",
+     "arg": false
+    }
+   },
+   "container": true,
+   "events": [],
+   "primary": "items",
+   "example": {
+    "args": [
+     "todos"
+    ],
+    "props": {
+     "as": "todo"
+    }
+   }
+  }
+ ]
+}

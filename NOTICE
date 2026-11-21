@@ -1,0 +1,16 @@
+Fluidian
+Copyright 2026 The Fluidian Authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It bundles four typefaces in runtime/fonts, each distributed under the SIL Open
+Font License 1.1 (see runtime/fonts/OFL.txt):
+
+  Inter (InterVariable.woff2)
+    Copyright 2016 The Inter Project Authors
+  Space Grotesk (SpaceGrotesk.woff2)
+    Copyright 2020 The Space Grotesk Project Authors
+  Instrument Serif (InstrumentSerif.woff2, InstrumentSerif-Italic.woff2)
+    Copyright 2022 The Instrument Serif Project Authors
+  JetBrains Mono (JetBrainsMono.woff2)
+    Copyright 2020 The JetBrains Mono Project Authors

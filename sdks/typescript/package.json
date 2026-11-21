@@ -1,0 +1,11 @@
+{
+  "name": "@fluidian/typescript",
+  "version": "1.2.0",
+  "description": "Fluidian SDK for TypeScript — typed builders for AI-native interfaces.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "src", "README.md"],
+  "scripts": { "build": "tsc -p ." },
+  "engines": { "node": ">=14" },
+  "license": "Apache-2.0"
+}

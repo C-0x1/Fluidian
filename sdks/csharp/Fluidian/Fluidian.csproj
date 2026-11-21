@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Target whatever runtime the installed SDK ships, so no extra packs are downloaded. -->
+    <TargetFramework Condition="'$(BundledNETCoreAppTargetFrameworkVersion)' != ''">net$(BundledNETCoreAppTargetFrameworkVersion)</TargetFramework>
+    <TargetFramework Condition="'$(TargetFramework)' == ''">net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Fluidian</RootNamespace>
+    <AssemblyName>Fluidian</AssemblyName>
+    <Version>1.2.0</Version>
+    <Description>Fluidian SDK for .NET - build AI-native interfaces.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Authors>The Fluidian Authors</Authors>
+  </PropertyGroup>
+</Project>

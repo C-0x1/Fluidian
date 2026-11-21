@@ -1,0 +1,1100 @@
+[
+ {
+  "file": "001-overview.png",
+  "app": "gallery",
+  "route": "/",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Gallery overview"
+ },
+ {
+  "file": "002-dashboard.png",
+  "app": "gallery",
+  "route": "/dashboard",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Dashboard with forecast, anomaly detection and generated insights"
+ },
+ {
+  "file": "003-dashboard-dark.png",
+  "app": "gallery",
+  "route": "/dashboard",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The same dashboard in the dark scheme"
+ },
+ {
+  "file": "004-generative-ui.png",
+  "app": "gallery",
+  "route": "/compose",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Interfaces composed from intent, schema and data"
+ },
+ {
+  "file": "005-sketch-import.png",
+  "app": "gallery",
+  "route": "/import",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Text wireframes and legacy HTML translated into components"
+ },
+ {
+  "file": "006-smart-forms.png",
+  "app": "gallery",
+  "route": "/forms",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Natural dates and quantities, format healing and semantic validation"
+ },
+ {
+  "file": "007-smart-paste.png",
+  "app": "gallery",
+  "route": "/paste",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "A pasted signature fills the whole form"
+ },
+ {
+  "file": "008-writing-tools.png",
+  "app": "gallery",
+  "route": "/writing",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Tone changes are previewed as a diff before they are accepted"
+ },
+ {
+  "file": "009-intent-bar.png",
+  "app": "gallery",
+  "route": "/command",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The Intent Bar routes language to registered actions"
+ },
+ {
+  "file": "010-copilot.png",
+  "app": "gallery",
+  "route": "/copilot",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "A copilot grounded in the current screen"
+ },
+ {
+  "file": "011-ask-your-data.png",
+  "app": "gallery",
+  "route": "/data",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Plain-language filtering, column typing and chart selection"
+ },
+ {
+  "file": "012-charts.png",
+  "app": "gallery",
+  "route": "/charts",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Charts with forecasts, anomaly markers and written descriptions"
+ },
+ {
+  "file": "013-data-story.png",
+  "app": "gallery",
+  "route": "/story",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "A narrative report generated from rows"
+ },
+ {
+  "file": "014-theme-studio.png",
+  "app": "gallery",
+  "route": "/theme",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Themes generated as OKLCH design tokens with contrast repair"
+ },
+ {
+  "file": "015-restyle-night.png",
+  "app": "gallery",
+  "route": "/restyle",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "One sentence restyles the product: “Calm fintech at night”"
+ },
+ {
+  "file": "016-restyle-citrus.png",
+  "app": "gallery",
+  "route": "/restyle",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The same screen as “Sunny citrus market”"
+ },
+ {
+  "file": "017-accessibility.png",
+  "app": "gallery",
+  "route": "/access",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "An accessibility audit with fixes"
+ },
+ {
+  "file": "018-adaptive.png",
+  "app": "gallery",
+  "route": "/adaptive",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Context, pace and locale adapt the interface"
+ },
+ {
+  "file": "019-content.png",
+  "app": "gallery",
+  "route": "/content",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "FAQs, change summaries and tours derived from existing content"
+ },
+ {
+  "file": "020-collaboration.png",
+  "app": "gallery",
+  "route": "/collab",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Thread summaries, decisions and reply drafts"
+ },
+ {
+  "file": "021-workflows.png",
+  "app": "gallery",
+  "route": "/flow",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Agent runs with approvals and an audit trail"
+ },
+ {
+  "file": "022-trust.png",
+  "app": "gallery",
+  "route": "/trust",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Redaction, injection defence, provenance and budgets"
+ },
+ {
+  "file": "023-kernel.png",
+  "app": "gallery",
+  "route": "/kernel",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The fifteen-step AI kernel pipeline with live telemetry"
+ },
+ {
+  "file": "024-developer-tools.png",
+  "app": "gallery",
+  "route": "/dev",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Scaffolding, UX review and test synthesis"
+ },
+ {
+  "file": "025-multimodal.png",
+  "app": "gallery",
+  "route": "/multimodal",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Voice, vision, illustration and sonification"
+ },
+ {
+  "file": "026-languages.png",
+  "app": "gallery",
+  "route": "/languages",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The same app in fourteen languages"
+ },
+ {
+  "file": "027-components.png",
+  "app": "gallery",
+  "route": "/components",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The component library"
+ },
+ {
+  "file": "028-inputs.png",
+  "app": "gallery",
+  "route": "/inputs",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Input controls"
+ },
+ {
+  "file": "029-board.png",
+  "app": "gallery",
+  "route": "/board",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "A board with suggested priorities"
+ },
+ {
+  "file": "030-guided-tour.png",
+  "app": "gallery",
+  "route": "/tour",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "A guided tour spotlighting live nodes"
+ },
+ {
+  "file": "031-states.png",
+  "app": "gallery",
+  "route": "/states",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Generated empty states, skeletons and progress narration"
+ },
+ {
+  "file": "032-capability-explorer.png",
+  "app": "gallery",
+  "route": "/capabilities",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "All 185 capabilities in a filterable table"
+ },
+ {
+  "file": "033-devtools.png",
+  "app": "gallery",
+  "route": "/dashboard",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "The built-in trace panel"
+ },
+ {
+  "file": "034-mobile.png",
+  "app": "gallery",
+  "route": "/dashboard",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Responsive layout on a phone"
+ },
+ {
+  "file": "035-landing-lumen.png",
+  "app": "showcase",
+  "route": "/landing/lumen",
+  "group": "Landing pages",
+  "title": "Lumen · AI workspace",
+  "theme": "aurora",
+  "caption": "An AI product launch: glow backdrop, prompt composer and a bento of capabilities"
+ },
+ {
+  "file": "036-landing-stackline.png",
+  "app": "showcase",
+  "route": "/landing/stackline",
+  "group": "Landing pages",
+  "title": "Stackline · developer cloud",
+  "theme": "graphite",
+  "caption": "A developer platform in monochrome: grid backdrop, a product window and a code-first feature band"
+ },
+ {
+  "file": "037-landing-relay.png",
+  "app": "showcase",
+  "route": "/landing/relay",
+  "group": "Landing pages",
+  "title": "Relay · model router",
+  "theme": "abyss",
+  "caption": "An API gateway for models: headline stats, a ranked model list and a usage console in a browser frame"
+ },
+ {
+  "file": "038-landing-halo.png",
+  "app": "showcase",
+  "route": "/landing/halo",
+  "group": "Landing pages",
+  "title": "Halo · wearables",
+  "theme": "ruby",
+  "caption": "A hardware launch in full-bleed promo tiles, with every product drawn procedurally"
+ },
+ {
+  "file": "039-landing-pulse.png",
+  "app": "showcase",
+  "route": "/landing/pulse",
+  "group": "Landing pages",
+  "title": "Pulse · fitness app",
+  "theme": "ember",
+  "caption": "A mobile app launch page: split hero with a live phone preview, feature tiles and testimonials"
+ },
+ {
+  "file": "040-landing-northbank.png",
+  "app": "showcase",
+  "route": "/landing/northbank",
+  "group": "Landing pages",
+  "title": "Northbank · investing",
+  "theme": "ocean",
+  "caption": "A financial services page: calm blues, account cards, a rate comparison and an FAQ"
+ },
+ {
+  "file": "041-landing-canvasly.png",
+  "app": "showcase",
+  "route": "/landing/canvasly",
+  "group": "Landing pages",
+  "title": "Canvasly · design tool",
+  "theme": "candy",
+  "caption": "A playful design-tool launch: pastel palette, input modes and a wall of short testimonials"
+ },
+ {
+  "file": "042-landing-brightbuild.png",
+  "app": "showcase",
+  "route": "/landing/brightbuild",
+  "group": "Landing pages",
+  "title": "Brightbuild · app builder",
+  "theme": "sunset",
+  "caption": "An AI app builder: warm gradient mesh, a prompt-first hero and a gallery of starting points"
+ },
+ {
+  "file": "043-landing-hearth.png",
+  "app": "showcase",
+  "route": "/landing/hearth",
+  "group": "Landing pages",
+  "title": "Hearth · open-source agent",
+  "theme": "terminal",
+  "caption": "An open-source project page in the Terminal theme: monospace type, an install block and numbered features"
+ },
+ {
+  "file": "044-landing-mnemo.png",
+  "app": "showcase",
+  "route": "/landing/mnemo",
+  "group": "Landing pages",
+  "title": "Mnemo · memory for AI",
+  "theme": "grape",
+  "caption": "An infrastructure product: tabbed code in the hero, a three-step explainer and a benchmark chart"
+ },
+ {
+  "file": "045-landing-orbit.png",
+  "app": "showcase",
+  "route": "/landing/orbit",
+  "group": "Landing pages",
+  "title": "Orbit · product analytics",
+  "theme": "iris",
+  "caption": "A SaaS landing page with the product on show: a dashboard in a browser frame, feature tiles and plans"
+ },
+ {
+  "file": "046-landing-atelier.png",
+  "app": "showcase",
+  "route": "/landing/atelier",
+  "group": "Landing pages",
+  "title": "Atelier Nord · studio",
+  "theme": "gold",
+  "caption": "A studio portfolio in the Gold theme: serif display type on near-black, with generative cover art"
+ },
+ {
+  "file": "047-landing-voyage.png",
+  "app": "showcase",
+  "route": "/landing/voyage",
+  "group": "Landing pages",
+  "title": "Voyage · travel",
+  "theme": "sky",
+  "caption": "A travel booking page: a generated landscape hero with a search card and destination tiles"
+ },
+ {
+  "file": "048-landing-fluidian.png",
+  "app": "showcase",
+  "route": "/landing/fluidian",
+  "group": "Landing pages",
+  "title": "Fluidian · framework home page",
+  "theme": "deep",
+  "caption": "Fluidian's own home page, built with Fluidian: code beside its result, the numbers and the ideas behind it"
+ },
+ {
+  "file": "049-store-olea.png",
+  "app": "showcase",
+  "route": "/store/olea",
+  "group": "Storefronts",
+  "title": "Maison Olea · skincare storefront",
+  "theme": "sand",
+  "caption": "An editorial storefront: serif display type, a split hero and a product grid with procedural product shots"
+ },
+ {
+  "file": "050-store-kordo.png",
+  "app": "showcase",
+  "route": "/store/kordo",
+  "group": "Storefronts",
+  "title": "Kordo · category listing",
+  "theme": "neon",
+  "caption": "A dark category page: filters, sort controls and a product grid with colour swatches"
+ },
+ {
+  "file": "051-store-product.png",
+  "app": "showcase",
+  "route": "/store/product",
+  "group": "Storefronts",
+  "title": "Kordo · product page",
+  "theme": "emerald",
+  "caption": "A product detail page with a media gallery, variant pickers and a review summary written by the AI kernel"
+ },
+ {
+  "file": "052-store-cart.png",
+  "app": "showcase",
+  "route": "/store/cart",
+  "group": "Storefronts",
+  "title": "Maison Olea · cart",
+  "theme": "rose",
+  "caption": "A cart in the Rose theme: line items with steppers, an order summary and recommendations"
+ },
+ {
+  "file": "053-store-checkout.png",
+  "app": "showcase",
+  "route": "/store/checkout",
+  "group": "Storefronts",
+  "title": "Maison Olea · checkout",
+  "theme": "ocean",
+  "caption": "A checkout with smart paste: one pasted address fills the form, and totals stay in view"
+ },
+ {
+  "file": "054-store-order.png",
+  "app": "showcase",
+  "route": "/store/order",
+  "group": "Storefronts",
+  "title": "Order tracking",
+  "theme": "mint",
+  "caption": "Order confirmation with live tracking: a route on the generated city map and a delivery timeline"
+ },
+ {
+  "file": "055-store-fern.png",
+  "app": "showcase",
+  "route": "/store/fern",
+  "group": "Storefronts",
+  "title": "Fern & Co · plant shop",
+  "theme": "moss",
+  "caption": "A plant shop in the Moss theme: lime on deep green, with every plant drawn from a seed"
+ },
+ {
+  "file": "056-store-glyph.png",
+  "app": "showcase",
+  "route": "/store/glyph",
+  "group": "Storefronts",
+  "title": "Glyph Market · digital goods",
+  "theme": "candy",
+  "caption": "A marketplace for fonts and templates: type specimens and interface thumbnails generated on the fly"
+ },
+ {
+  "file": "057-store-tempo.png",
+  "app": "showcase",
+  "route": "/store/tempo",
+  "group": "Storefronts",
+  "title": "Tempo · watches",
+  "theme": "gold",
+  "caption": "A luxury product page: gold on black, serif headlines and a generated watch as the centrepiece"
+ },
+ {
+  "file": "058-store-crate.png",
+  "app": "showcase",
+  "route": "/store/crate",
+  "group": "Storefronts",
+  "title": "Crate · grocery delivery",
+  "theme": "tangerine",
+  "caption": "Grocery delivery in the Tangerine theme: produce drawn as artwork, quick-add buttons and a live basket"
+ },
+ {
+  "file": "059-store-admin.png",
+  "app": "showcase",
+  "route": "/store/admin",
+  "group": "Storefronts",
+  "title": "Merchant admin",
+  "theme": "deep",
+  "caption": "The merchant side: revenue, orders and stock alerts, with an AI briefing on what needs attention"
+ },
+ {
+  "file": "060-store-lookbook.png",
+  "app": "showcase",
+  "route": "/store/lookbook",
+  "group": "Storefronts",
+  "title": "Casa Verano · lookbook",
+  "theme": "forest",
+  "caption": "An editorial homeware lookbook in the Forest theme: overlay tiles, serif type and warm product shots"
+ },
+ {
+  "file": "061-dash-finance.png",
+  "app": "showcase",
+  "route": "/dash/finance",
+  "group": "Dashboards",
+  "title": "Northbank · wealth dashboard",
+  "theme": "midnight",
+  "caption": "A wealth dashboard in the Midnight theme: allocation rings, a performance curve and holdings with trends"
+ },
+ {
+  "file": "062-dash-saas.png",
+  "app": "showcase",
+  "route": "/dash/saas",
+  "group": "Dashboards",
+  "title": "Orbit · product analytics",
+  "theme": "deep",
+  "caption": "Product analytics: activation, a conversion funnel, a retention heatmap and the pages people use most"
+ },
+ {
+  "file": "063-dash-trading.png",
+  "app": "showcase",
+  "route": "/dash/trading",
+  "group": "Dashboards",
+  "title": "Vector · trading terminal",
+  "theme": "crimson",
+  "caption": "A trading terminal in the Crimson theme: candlesticks with volume, an order book and open positions"
+ },
+ {
+  "file": "064-dash-health.png",
+  "app": "showcase",
+  "route": "/dash/health",
+  "group": "Dashboards",
+  "title": "Pulse · health dashboard",
+  "theme": "ember",
+  "caption": "Health and training in the Ember theme: activity rings, heart-rate zones, sleep stages and a readiness gauge"
+ },
+ {
+  "file": "065-dash-home.png",
+  "app": "showcase",
+  "route": "/dash/home",
+  "group": "Dashboards",
+  "title": "Hearthstone · smart home",
+  "theme": "grape",
+  "caption": "A smart-home panel in the Grape theme: device tiles, a thermostat gauge, energy use and scenes"
+ },
+ {
+  "file": "066-dash-devops.png",
+  "app": "showcase",
+  "route": "/dash/devops",
+  "group": "Dashboards",
+  "title": "Stackline · observability",
+  "theme": "lagoon",
+  "caption": "An observability console in the Lagoon theme, teal on deep blue-green: latency and error rates, service health, an incident timeline and live logs"
+ },
+ {
+  "file": "067-dash-llm.png",
+  "app": "showcase",
+  "route": "/dash/llm",
+  "group": "Dashboards",
+  "title": "Relay · LLM gateway console",
+  "theme": "abyss",
+  "caption": "An LLM gateway console: token spend by model, cache savings, budgets per team and the latest requests"
+ },
+ {
+  "file": "068-dash-crm.png",
+  "app": "showcase",
+  "route": "/dash/crm",
+  "group": "Dashboards",
+  "title": "Northpass · sales pipeline",
+  "theme": "ocean",
+  "caption": "A sales workspace: a pipeline board with deal values, a forecast with a confidence band and a leaderboard"
+ },
+ {
+  "file": "069-dash-projects.png",
+  "app": "showcase",
+  "route": "/dash/projects",
+  "group": "Dashboards",
+  "title": "Cadence · project tracker",
+  "theme": "emerald",
+  "caption": "A project tracker in black and white: a roadmap, a burndown, workload by person and what is due this week"
+ },
+ {
+  "file": "070-dash-music.png",
+  "app": "showcase",
+  "route": "/dash/music",
+  "group": "Dashboards",
+  "title": "Tide · music streaming",
+  "theme": "neon",
+  "caption": "A music app: generated album covers, a now-playing bar with a waveform and personal listening stats"
+ },
+ {
+  "file": "071-dash-learning.png",
+  "app": "showcase",
+  "route": "/dash/learning",
+  "group": "Dashboards",
+  "title": "Kindle Academy · learning",
+  "theme": "candy",
+  "caption": "A learning platform in the Candy theme: course progress, a study streak, the week's schedule and a leaderboard"
+ },
+ {
+  "file": "072-dash-logistics.png",
+  "app": "showcase",
+  "route": "/dash/logistics",
+  "group": "Dashboards",
+  "title": "Halden · fleet and logistics",
+  "theme": "tangerine",
+  "caption": "Fleet operations: live routes on the generated map, on-time performance and shipments that need attention"
+ },
+ {
+  "file": "073-dash-clinic.png",
+  "app": "showcase",
+  "route": "/dash/clinic",
+  "group": "Dashboards",
+  "title": "Oakline · clinic operations",
+  "theme": "mint",
+  "caption": "A clinic day view in the Mint theme: appointments across rooms, a waiting list and capacity at a glance"
+ },
+ {
+  "file": "074-dash-energy.png",
+  "app": "showcase",
+  "route": "/dash/energy",
+  "group": "Dashboards",
+  "title": "Solstice · solar and energy",
+  "theme": "citrus",
+  "caption": "A home energy dashboard in the Citrus theme: production against use, battery state and panel output"
+ },
+ {
+  "file": "075-dash-social.png",
+  "app": "showcase",
+  "route": "/dash/social",
+  "group": "Dashboards",
+  "title": "Bloom · creator analytics",
+  "theme": "rose",
+  "caption": "Creator analytics in the Rose theme: audience growth, the best time to post and top content with generated thumbnails"
+ },
+ {
+  "file": "076-dash-support.png",
+  "app": "showcase",
+  "route": "/dash/support",
+  "group": "Dashboards",
+  "title": "Harbor · support desk",
+  "theme": "sky",
+  "caption": "A support desk in the Sky theme: queue health, a live conversation and a reply drafted by the assistant"
+ },
+ {
+  "file": "077-ai-chat.png",
+  "app": "showcase",
+  "route": "/ai/chat",
+  "group": "AI products",
+  "title": "Assistant chat",
+  "theme": "aurora",
+  "caption": "An assistant conversation with tool calls, citations and follow-ups, beside the sources it read"
+ },
+ {
+  "file": "078-ai-agent-run.png",
+  "app": "showcase",
+  "route": "/ai/agent-run",
+  "group": "AI products",
+  "title": "Agent run inspector",
+  "theme": "abyss",
+  "caption": "An agent run laid bare: every step, tool call and cost, with an approval waiting for a human"
+ },
+ {
+  "file": "079-ai-playground.png",
+  "app": "showcase",
+  "route": "/ai/playground",
+  "group": "AI products",
+  "title": "Prompt playground",
+  "theme": "neon",
+  "caption": "A prompt playground: system and user messages, parameters, a streamed answer and token accounting"
+ },
+ {
+  "file": "080-ai-models.png",
+  "app": "showcase",
+  "route": "/ai/models",
+  "group": "AI products",
+  "title": "Model comparison",
+  "theme": "ruby",
+  "caption": "Choosing a model with evidence: quality, speed and price side by side, and the same prompt answered three ways"
+ },
+ {
+  "file": "081-ai-compose.png",
+  "app": "showcase",
+  "route": "/ai/compose",
+  "group": "AI products",
+  "title": "Generative interface",
+  "theme": "iris",
+  "caption": "Generative UI, live: a sentence becomes a working interface, composed by the kernel and editable afterwards"
+ },
+ {
+  "file": "082-ai-search.png",
+  "app": "showcase",
+  "route": "/ai/search",
+  "group": "AI products",
+  "title": "Answer engine",
+  "theme": "deep",
+  "caption": "A search experience that answers: a cited summary, the passages behind it and related questions"
+ },
+ {
+  "file": "083-ai-doc-qa.png",
+  "app": "showcase",
+  "route": "/ai/doc-qa",
+  "group": "AI products",
+  "title": "Document question answering",
+  "theme": "ocean",
+  "caption": "Ask a contract: the document on the left, answers on the right with the clause each one came from"
+ },
+ {
+  "file": "084-ai-analyst.png",
+  "app": "showcase",
+  "route": "/ai/analyst",
+  "group": "AI products",
+  "title": "Data analyst",
+  "theme": "mint",
+  "caption": "Ask your data: a plain-language question becomes a query, a chart and a written finding you can check"
+ },
+ {
+  "file": "085-ai-review.png",
+  "app": "showcase",
+  "route": "/ai/review",
+  "group": "AI products",
+  "title": "Reviewing AI edits",
+  "theme": "rose",
+  "caption": "Human review of AI changes: each rewrite shown as a diff with its reason, risk and an accept or reject"
+ },
+ {
+  "file": "086-ai-memory.png",
+  "app": "showcase",
+  "route": "/ai/memory",
+  "group": "AI products",
+  "title": "Memory inspector",
+  "theme": "grape",
+  "caption": "What the assistant remembers and why: facts with their source, confidence and a way to forget"
+ },
+ {
+  "file": "087-ai-voice.png",
+  "app": "showcase",
+  "route": "/ai/voice",
+  "group": "AI products",
+  "title": "Voice notes to actions",
+  "theme": "ember",
+  "caption": "A recording becomes a summary, decisions and assigned actions, with the transcript one click away"
+ },
+ {
+  "file": "088-ai-router.png",
+  "app": "showcase",
+  "route": "/ai/router",
+  "group": "AI products",
+  "title": "Routing and guardrails",
+  "theme": "terminal",
+  "caption": "Model governance in the Terminal theme: routing rules, a fallback chain, guardrails and data residency"
+ },
+ {
+  "file": "089-ai-evals.png",
+  "app": "showcase",
+  "route": "/ai/evals",
+  "group": "AI products",
+  "title": "Evaluation dashboard",
+  "theme": "lagoon",
+  "caption": "Keeping quality honest: pass rates per suite, a regression flagged against the last release and failing examples"
+ },
+ {
+  "file": "090-mobile-banking.png",
+  "app": "showcase",
+  "route": "/mobile/banking",
+  "group": "Mobile and cross-platform",
+  "title": "Banking app · iOS and Android",
+  "theme": "deep",
+  "caption": "One banking scene rendered with the iOS skin, the Android skin and a dark theme: no platform-specific code"
+ },
+ {
+  "file": "091-mobile-fitness.png",
+  "app": "showcase",
+  "route": "/mobile/fitness",
+  "group": "Mobile and cross-platform",
+  "title": "Fitness tracker · iOS and Android",
+  "theme": "ember",
+  "caption": "A fitness tracker in the Ember theme on both platforms, with rings, stats and a weekly chart"
+ },
+ {
+  "file": "092-mobile-food.png",
+  "app": "showcase",
+  "route": "/mobile/food",
+  "group": "Mobile and cross-platform",
+  "title": "Food delivery · iOS and Android",
+  "theme": "sunset",
+  "caption": "A food delivery app in the Sunset theme: generated dishes, quick filters and a floating basket"
+ },
+ {
+  "file": "093-mobile-travel.png",
+  "app": "showcase",
+  "route": "/mobile/travel",
+  "group": "Mobile and cross-platform",
+  "title": "Travel companion · iOS and Android",
+  "theme": "sky",
+  "caption": "A trip screen with a generated landscape, a boarding pass and the day's plan"
+ },
+ {
+  "file": "094-mobile-music.png",
+  "app": "showcase",
+  "route": "/mobile/music",
+  "group": "Mobile and cross-platform",
+  "title": "Music player · iOS and Android",
+  "theme": "grape",
+  "caption": "A music player with generated cover art, transport controls and a waveform"
+ },
+ {
+  "file": "095-mobile-chat.png",
+  "app": "showcase",
+  "route": "/mobile/chat",
+  "group": "Mobile and cross-platform",
+  "title": "Messaging · list and conversation",
+  "theme": "mint",
+  "caption": "A messaging app: the inbox on iOS and a conversation on Android, with an AI-suggested reply inline"
+ },
+ {
+  "file": "096-mobile-weather.png",
+  "app": "showcase",
+  "route": "/mobile/weather",
+  "group": "Mobile and cross-platform",
+  "title": "Weather · iOS and Android",
+  "theme": "abyss",
+  "caption": "A weather app whose icons and skies are all generated artwork"
+ },
+ {
+  "file": "097-mobile-habits.png",
+  "app": "showcase",
+  "route": "/mobile/habits",
+  "group": "Mobile and cross-platform",
+  "title": "Habit tracker · iOS and Android",
+  "theme": "citrus",
+  "caption": "A habit tracker with a streak heatmap, a checklist and a nudge from the AI kernel"
+ },
+ {
+  "file": "098-mobile-home.png",
+  "app": "showcase",
+  "route": "/mobile/home",
+  "group": "Mobile and cross-platform",
+  "title": "Smart home · iOS and Android",
+  "theme": "lagoon",
+  "caption": "Smart-home controls: toggle tiles, a thermostat gauge and scene shortcuts on both platforms"
+ },
+ {
+  "file": "099-mobile-shop.png",
+  "app": "showcase",
+  "route": "/mobile/shop",
+  "group": "Mobile and cross-platform",
+  "title": "Storefront · iOS and Android",
+  "theme": "ruby",
+  "caption": "The Maison Olea storefront on phones: the same product cards as the website, reflowed"
+ },
+ {
+  "file": "100-mobile-platforms.png",
+  "app": "showcase",
+  "route": "/mobile/platforms",
+  "group": "Mobile and cross-platform",
+  "title": "One scene on phone, tablet and web",
+  "theme": "emerald",
+  "caption": "The same dashboard scene in a phone, a tablet and a browser: layout adapts to the frame, not just the window"
+ },
+ {
+  "file": "101-mobile-themes.png",
+  "app": "showcase",
+  "route": "/mobile/themes",
+  "group": "Mobile and cross-platform",
+  "title": "One screen, eight themes",
+  "theme": "paper",
+  "caption": "One wallet screen in eight of the twenty-seven built-in themes, alternating the iOS and Android skins"
+ },
+ {
+  "file": "102-mobile-onboarding.png",
+  "app": "showcase",
+  "route": "/mobile/onboarding",
+  "group": "Mobile and cross-platform",
+  "title": "Onboarding flow",
+  "theme": "tangerine",
+  "caption": "A three-step onboarding flow with generated illustrations"
+ },
+ {
+  "file": "103-mobile-auth.png",
+  "app": "showcase",
+  "route": "/mobile/auth",
+  "group": "Mobile and cross-platform",
+  "title": "Sign-in, verification and passkeys",
+  "theme": "ocean",
+  "caption": "Authentication screens: sign-in, a one-time code and passkey confirmation"
+ },
+ {
+  "file": "104-module-auth.png",
+  "app": "showcase",
+  "route": "/module/auth",
+  "group": "Application modules",
+  "title": "Sign-in",
+  "theme": "aurora",
+  "caption": "A split sign-in screen: generated artwork and a testimonial on one side, the form on the other"
+ },
+ {
+  "file": "105-module-onboarding.png",
+  "app": "showcase",
+  "route": "/module/onboarding",
+  "group": "Application modules",
+  "title": "Setup wizard",
+  "theme": "sunset",
+  "caption": "A setup wizard with progress, plan choices and suggestions written by the AI kernel"
+ },
+ {
+  "file": "106-module-settings.png",
+  "app": "showcase",
+  "route": "/module/settings",
+  "group": "Application modules",
+  "title": "Settings",
+  "theme": "deep",
+  "caption": "Account settings: profile, preferences, security, a plan card and a danger zone"
+ },
+ {
+  "file": "107-module-inbox.png",
+  "app": "showcase",
+  "route": "/module/inbox",
+  "group": "Application modules",
+  "title": "Mail client",
+  "theme": "iris",
+  "caption": "A three-pane mail client with an AI summary and a drafted reply above the thread"
+ },
+ {
+  "file": "108-module-calendar.png",
+  "app": "showcase",
+  "route": "/module/calendar",
+  "group": "Application modules",
+  "title": "Calendar",
+  "theme": "sky",
+  "caption": "A month calendar with an agenda and scheduling suggestions from the AI kernel"
+ },
+ {
+  "file": "109-module-files.png",
+  "app": "showcase",
+  "route": "/module/files",
+  "group": "Application modules",
+  "title": "File manager",
+  "theme": "grape",
+  "caption": "A file manager with generated thumbnails, a details panel and search by meaning rather than filename"
+ },
+ {
+  "file": "110-module-kanban.png",
+  "app": "showcase",
+  "route": "/module/kanban",
+  "group": "Application modules",
+  "title": "Kanban board",
+  "theme": "forest",
+  "caption": "A kanban board in the Forest theme with tags, assignees and a suggested next priority"
+ },
+ {
+  "file": "111-module-table.png",
+  "app": "showcase",
+  "route": "/module/table",
+  "group": "Application modules",
+  "title": "Data grid",
+  "theme": "emerald",
+  "caption": "A dense data grid with plain-language filtering, bulk actions, status badges and pagination"
+ },
+ {
+  "file": "112-module-notifications.png",
+  "app": "showcase",
+  "route": "/module/notifications",
+  "group": "Application modules",
+  "title": "Notification centre",
+  "theme": "candy",
+  "caption": "A notification centre: grouped activity, an AI digest of what matters and per-channel preferences"
+ },
+ {
+  "file": "113-module-team.png",
+  "app": "showcase",
+  "route": "/module/team",
+  "group": "Application modules",
+  "title": "Team directory",
+  "theme": "mint",
+  "caption": "A team directory: member cards with presence, roles, workload and pending invitations"
+ },
+ {
+  "file": "114-module-billing.png",
+  "app": "showcase",
+  "route": "/module/billing",
+  "group": "Application modules",
+  "title": "Billing and usage",
+  "theme": "ocean",
+  "caption": "Billing: the current plan, metered usage against limits, a payment method and invoice history"
+ },
+ {
+  "file": "115-module-pricing.png",
+  "app": "showcase",
+  "route": "/module/pricing",
+  "group": "Application modules",
+  "title": "Pricing page",
+  "theme": "citrus",
+  "caption": "A complete pricing page: plan cards, a feature comparison and frequently asked questions"
+ },
+ {
+  "file": "116-module-changelog.png",
+  "app": "showcase",
+  "route": "/module/changelog",
+  "group": "Application modules",
+  "title": "Changelog",
+  "theme": "midnight",
+  "caption": "A changelog with release entries, tagged improvements and a subscription card"
+ },
+ {
+  "file": "117-module-command.png",
+  "app": "showcase",
+  "route": "/module/command",
+  "group": "Application modules",
+  "title": "Command palette",
+  "theme": "moss",
+  "caption": "The command palette: language routed to actions, with the matched arguments shown before anything runs"
+ },
+ {
+  "file": "118-module-docs.png",
+  "app": "showcase",
+  "route": "/module/docs",
+  "group": "Application modules",
+  "title": "Documentation site",
+  "theme": "abyss",
+  "caption": "A documentation layout: section navigation, an article with highlighted code and an on-this-page rail"
+ },
+ {
+  "file": "119-module-themes.png",
+  "app": "showcase",
+  "route": "/module/themes",
+  "group": "Application modules",
+  "title": "Theme wall",
+  "theme": "paper",
+  "caption": "All twenty-seven built-in themes on one page, each applied to the same card with a single Theme node"
+ },
+ {
+  "file": "120-portable-logic.png",
+  "app": "gallery",
+  "route": "/logic",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Portable logic: state, bindings and actions that run in the runtime and convert between all SDK languages"
+ },
+ {
+  "file": "121-platform-preview.png",
+  "app": "gallery",
+  "route": "/platforms",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "One scene previewed with the iOS, Android and web skins"
+ },
+ {
+  "file": "122-art-and-themes.png",
+  "app": "gallery",
+  "route": "/art",
+  "group": "Gallery",
+  "title": "",
+  "theme": "",
+  "caption": "Procedural artwork and the twenty-seven theme presets"
+ }
+]

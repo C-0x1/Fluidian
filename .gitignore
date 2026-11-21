@@ -1,0 +1,36 @@
+# build output and caches
+.fluidian/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+target/
+Cargo.lock
+bin/
+obj/
+.dart_tool/
+pubspec.lock
+_build/
+*.class
+*.jar
+out/
+
+# source that lives in a folder named like build output: it stays tracked.
+# sdks/dart/bin holds the Dart conformance app, and the SDK suite fails on a clone without it.
+!/sdks/dart/bin/
+
+# local configuration and secrets
+.env
+.env.*
+fluidian.config.local.json
+
+# editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# output of fluidian convert, package and tokens
+/converted/
+/native/
+/design-tokens/

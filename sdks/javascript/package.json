@@ -1,0 +1,10 @@
+{
+  "name": "fluidian",
+  "version": "1.2.0",
+  "description": "Fluidian SDK for JavaScript — build AI-native interfaces from Node.js.",
+  "main": "index.js",
+  "files": ["index.js", "node.js", "ui.js", "README.md"],
+  "engines": { "node": ">=14" },
+  "keywords": ["fluidian", "ui", "ai", "server-driven-ui", "openai"],
+  "license": "Apache-2.0"
+}
